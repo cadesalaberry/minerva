@@ -2,9 +2,11 @@
 """
 Usage:
 	minerva register <class_crn>...
+	minerva drop <class_crn>
 	minerva transcript
 	minerva check <class_crn>
-	minerva search <class_name>
+	minerva search <class_name> | <class_crn>
+	minerva list [all]
 	minerva -h | --help
 	minerva -v | --version
 
@@ -16,17 +18,17 @@ Examples:
 
 Options:
 	-h, --help     Show this screen.
-	-v --version   Print the current version.
+	-v, --version   Print the current version.
 """
 
 import ui
-from minerva import __version__
 from docopt import docopt
 
 def start():
 	
-	version = ".".join(str(x) for x in __version__)
-	args = docopt(__doc__, version=version)
-	print(args)
-	print ui.confirm_input(args)
+	args = docopt(__doc__, version='0.0.1')
+	#print(args)
+
+	ui.confirm_input(args)
+	
 	print ui.get_user_credentials()

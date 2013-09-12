@@ -1,4 +1,3 @@
-import ui
 import sys
 import getpass
 
@@ -26,4 +25,5 @@ def get_user_credentials():
 
 def confirm_input(args):
 
-	
+	if True:
+		return True
