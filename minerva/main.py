@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 """
 Usage:
-	minerva register <class_crn>...
+	minerva login
+	minerva register <class_crns>...
 	minerva drop <class_crn>
 	minerva transcript
 	minerva check <class_crn>
@@ -18,17 +19,44 @@ Examples:
 
 Options:
 	-h, --help     Show this screen.
-	-v, --version   Print the current version.
+	-v, --version  Print the current version.
 """
 
 import ui
 from docopt import docopt
+from minerva import MinervaSession
 
 def start():
 	
 	args = docopt(__doc__, version='0.0.1')
-	#print(args)
+	validRequest = True
 
-	ui.confirm_input(args)
-	
-	print ui.get_user_credentials()
+	if args['register']:
+		if len(args['<class_crns>']) < 10:
+			print 'Trying to register to:', args['<class_crns>']
+		else:
+			print 'Error: Too many CRNs specified.'
+			validRequest = False
+
+
+	if validRequest:
+
+		credentials = ui.get_user_credentials()
+
+		session = MinervaSession(credentials)
+
+		print 'Logging in...'
+		session.login()
+		print 'Logged in !'
+		
+		if not args['login']:
+			session.deal_with_request(args)
+
+		print 'Logging out...'
+		session.logout()
+		print 'Logged out !'
+
+	else:
+		print 'Error: Invalid input.'
+		print 'try "minerva -h" to display the help screen.'
+		print 'Exiting...'

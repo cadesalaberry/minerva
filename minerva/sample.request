@@ -1,0 +1,89 @@
+
+
+  
+    Request URL:
+    https://horizon.mcgill.ca/pban1/bwckcoms.P_Regs
+  
+  
+    Request Method:
+    POST
+  
+  
+    Status Code:
+    HTTP/1.1 200 OK
+  
+
+
+
+  
+    Request Headers
+    20:31:38.000
+  
+  User-Agent:Mozilla/5.0 (X11; Linux x86_64; rv:23.0) Gecko/20100101 Firefox/23.0Referer:https://horizon.mcgill.ca/pban1/bwskfreg.P_AltPinHost:horizon.mcgill.caDNT:1Connection:keep-aliveAccept-Language:en-US,en;q=0.5Accept-Encoding:gzip, deflateAccept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+  
+
+  
+  
+    Sent Form Data
+    term_in=201309&RSTS_IN=DUMMY&assoc_term_in=DUMMY&CRN_IN=DUMMY&start_date_in=DUMMY&end_date_in=DUMMY&SUBJ=DUMMY&CRSE=DUMMY&SEC=DUMMY&LEVL=DUMMY&CRED=DUMMY&GMOD=DUMMY&TITLE=DUMMY&MESG=DUMMY&REG_BTN=DUMMY&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=830&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=COMP&CRSE=302&SEC=001&LEVL=Undergraduate&CRED=++++3.000&GMOD=Standard&TITLE=Programming+Languages+and+Paradigms.&MESG=DUMMY&RSTS_IN=DW&assoc_term_in=201309&CRN_IN=833&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=COMP&CRSE=360&SEC=001&LEVL=Undergraduate&CRED=++++3.000&GMOD=Standard&TITLE=Algorithm+Design.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=496&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=305&SEC=001&LEVL=Undergraduate&CRED=++++3.000&GMOD=Standard&TITLE=Probability+and+Random+Signals+1.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=498&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=305&SEC=004&LEVL=Undergraduate&CRED=++++0.000&GMOD=Standard&TITLE=Probability+and+Random+Signals+1.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=527&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=414&SEC=001&LEVL=Undergraduate&CRED=++++3.000&GMOD=Standard&TITLE=Introduction+to+Telecommunication+Networks.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=14600&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=414&SEC=002&LEVL=Undergraduate&CRED=++++0.000&GMOD=Standard&TITLE=Introduction+to+Telecommunication+Networks.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=4296&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=420&SEC=001&LEVL=Undergraduate&CRED=++++3.000&GMOD=Standard&TITLE=Parallel+Computing.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=5634&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=420&SEC=003&LEVL=Undergraduate&CRED=++++0.000&GMOD=Standard&TITLE=Parallel+Computing.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=3398&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=429&SEC=001&LEVL=Undergraduate&CRED=++++3.000&GMOD=Standard&TITLE=Software+Validation.&MESG=DUMMY&RSTS_IN=&assoc_term_in=201309&CRN_IN=12187&start_date_in=09%2F03%2F2013&end_date_in=12%2F03%2F2013&SUBJ=ECSE&CRSE=429&SEC=003&LEVL=Undergraduate&CRED=++++0.000&GMOD=Standard&TITLE=Software+Validation.&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&RSTS_IN=RW&CRN_IN=&assoc_term_in=&start_date_in=&end_date_in=&regs_row=10&wait_row=0&add_row=10&REG_BTN=Submit+Changes
+Response Headersview source
+
+  
+  
+
+
+
+  
+    Response Headers
+    Δ54ms
+  
+  Server:Oracle-Application-Server-11g Oracle-Web-Cache-11g/11.1.1.6.0 (N;ecid=141830694498314528,0:1)Keep-Alive:timeout=5, max=999Date:Wed, 18 Sep 2013 00:31:38 GMTContent-Type:text/html; charset=UTF-8Content-Length:5419Content-Language:enContent-Encoding:gzipConnection:Keep-Alive
+
+  
+    Received Cookie
+    TESTID:setSESSID:ORA_WX_SESSION:"300758595769BEA752B2AA1AC600FE387403ED98-0#1"BIGipServer~ISR~Horizon_PROD_ssb-http:2820086700.26910.0000
+  
+
+  
+    
+      Response Body
+      Δ11ms
+    
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META HTTP-EQUIV="Pragma" NAME="Cache-Control" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" NAME="Cache-Control" CONTENT="no-cache">
+<LINK REL="stylesheet" HREF="/css/web_defaultapp.css" TYPE="text/css">
+<LINK REL="stylesheet" HREF="/css/web_defaultprint.css" TYPE="text/css" media="print">
+<TITLE>User Login</TITLE>
+<META HTTP-EQUIV="Content-Script-Type" NAME="Default_Script_Language" CONTENT="text/javascript">
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!-- Hide JavaScript from older browsers 
+var submitcount=0;
+function checkSubmit() {
+if (submitcount == 0)
+   {
+   submitcount++;
+   return true;
+   }
+else
+   {
+alert("Your changes have already been submitted.");
+   return false;
+   }
+}
+//  End script hiding -->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<
+  
+  
+  
+  
+  
+  
+  Fetch the remaining 14301 bytes
+

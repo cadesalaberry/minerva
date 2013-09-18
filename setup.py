@@ -5,13 +5,13 @@ except:
 	from disutils.core import core
 
 
-dependencies=['docopt','mechanize','beautifulsoup4']
+dependencies=['docopt','mechanize','beautifulsoup4','mechanize']
 
 setup(
 
 	name='minerva',
 	version='0.0.1',
-	description='A python interface to the aging minerva website',
+	description='A python interface to the aging minerva website.',
 	url='https://github.com/cadesalaberry/minerva',
 	author='cadesalaberry',
 	author_email='cadesalaberry@yahoo.com',
