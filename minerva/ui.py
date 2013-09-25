@@ -6,9 +6,30 @@ from os.path import expanduser
 # Reads the user credentials
 def get_user_credentials():
 
-	#################################################
-	# Gets the user credential to store in the user #
-	#################################################
+	"""Gets the user credentials from the commandline.
+
+    Asks the user for his McGill email address and password.
+
+
+    Args:
+    	None
+
+    Returns:
+		An array containing the user credentials. For example:
+		
+		['username','password']
+
+		Notice that no checks for validity is applied to the input.
+		For testing purposes, if not executed in a tty, the username
+		and password are goign to be read from stdin.
+
+		Example:
+
+			minerva register 69 < credentials.txt
+
+    Raises:
+		IOError: An error occurred accessing the username file.
+	"""
 
 	_userPath = expanduser("~") + '/.minerva/user'
 
@@ -18,8 +39,7 @@ def get_user_credentials():
 		try:
 			with open(_userPath) as userFile:
 				_mail = userFile.readline().strip()
-				print 'Read:', _mail
-				pass
+				print 'Read : ', _mail
 		except IOError:
 			userFile = open(_userPath, 'w')
 			_mail = raw_input('Email? ')
@@ -39,3 +59,6 @@ def get_user_credentials():
 			exit()
 			
 	return _cred
+
+def get_current_semester():
+
