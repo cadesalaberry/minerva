@@ -19,7 +19,13 @@
     Request Headers
     20:31:38.000
   
-  User-Agent:Mozilla/5.0 (X11; Linux x86_64; rv:23.0) Gecko/20100101 Firefox/23.0Referer:https://horizon.mcgill.ca/pban1/bwskfreg.P_AltPinHost:horizon.mcgill.caDNT:1Connection:keep-aliveAccept-Language:en-US,en;q=0.5Accept-Encoding:gzip, deflateAccept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+  User-Agent:Mozilla/5.0 (X11; Linux x86_64; rv:23.0) Gecko/20100101 Firefox/23.0
+  Referer:https://horizon.mcgill.ca/pban1/bwskfreg.P_AltPin
+  Host:horizon.mcgill.caDNT:1
+  Connection:keep-alive
+  Accept-Language:en-US,en;q=0.5
+  Accept-Encoding:gzip, deflate
+  Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 
   
 
@@ -38,7 +44,14 @@ Response Headersview source
     Response Headers
     Δ54ms
   
-  Server:Oracle-Application-Server-11g Oracle-Web-Cache-11g/11.1.1.6.0 (N;ecid=141830694498314528,0:1)Keep-Alive:timeout=5, max=999Date:Wed, 18 Sep 2013 00:31:38 GMTContent-Type:text/html; charset=UTF-8Content-Length:5419Content-Language:enContent-Encoding:gzipConnection:Keep-Alive
+  Server:Oracle-Application-Server-11g Oracle-Web-Cache-11g/11.1.1.6.0 (N;ecid=141830694498314528,0:1)
+  Keep-Alive:timeout=5, max=999
+  Date:Wed, 18 Sep 2013 00:31:38 GMT
+  Content-Type:text/html; charset=UTF-8
+  Content-Length:5419
+  Content-Language:en
+  Content-Encoding:gzip
+  Connection:Keep-Alive
 
   
     Received Cookie
