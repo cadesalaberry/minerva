@@ -7,7 +7,6 @@ A python interface to the aging minerva website.
 
 
 # Usage
-=======
 
 Usage:
 
@@ -35,7 +34,6 @@ Options:
 
 
 # Installation
-=======
 
 ## Simple (with pip)
 
@@ -58,12 +56,12 @@ And you are good to go ! you can then use the command-line client by typing it's
 
 ## Uninstallation
 
-
 To remove the package, just run:
 
 	make uninstall
-SOCS Server bug
-=======
+
+
+# SOCS Server bug
 
 If you want to install minerva on your SOCS server, you might run into the same issues I did, providing we don't have root privileges. In order to solve it, I just had to modify my **~/.bashrc** file to look like this:
 
