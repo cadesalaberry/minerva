@@ -3,10 +3,10 @@ minerva
 
 A python interface to the aging minerva website.
 
-[![Bitdeli Badge](.assets/mcgill-logo-transparent.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
+[![McGill Logo](./assets/mcgill-logo-transparent.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
 
 
-Usage
+# Usage
 =======
 
 Usage:
@@ -34,9 +34,17 @@ Options:
 	-v, --version  Print the current version.
 
 
-Installation (Manual)
+# Installation
 =======
 
+## Simple (with pip)
+
+The package has not been submitted to the Python Package Index (PyPi) yet, but you will be able to install it using:
+
+	pip install minerva
+
+
+## Manual
 The simplest way to install the package is using the makefile provided in the repository. Provifing you already have git installed:
 
 	git clone https://github.com/cadesalaberry/minerga.git
@@ -48,14 +56,12 @@ And you are good to go ! you can then use the command-line client by typing it's
 	minerva
 
 
-Installation (Simple with pip)
-=======
-
-The package has not been submitted to the Python Package Index (PyPi) yet, but you will be able to install it using:
-
-	pip install minerva
+## Uninstallation
 
 
+To remove the package, just run:
+
+	make uninstall
 SOCS Server bug
 =======
 
@@ -73,14 +79,6 @@ If you want to install minerva on your SOCS server, you might run into the same 
 	**export PATH=$HOME/.local/bin:$PATH**
 
 The two last lines are the most important.
-
-
-Uninstallation
-=======
-
-To remove the package, just run:
-
-	make uninstall
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cadesalaberry/minerva/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
