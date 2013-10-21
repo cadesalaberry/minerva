@@ -1,6 +1,12 @@
 import sys
 import getpass
+from urlparse import urlparse
+from urlparse import parse_qs
+from HTMLParser import HTMLParser
 from os.path import expanduser
+from os.path import exists
+from os.path import join
+from os import makedirs
 
 
 # Reads the user credentials
@@ -31,18 +37,22 @@ def get_user_credentials():
 		IOError: An error occurred accessing the username file.
 	"""
 
-	_userPath = expanduser("~") + '/.minerva/user'
+	_userPath = expanduser("~/.minerva/")
+	_userFile = join(_userPath, 'user')
 
 	if sys.stdin.isatty():
 		# Gets the credentials from the userFile if it exists
 		
 		try:
-			with open(_userPath) as userFile:
+			with open(_userFile) as userFile:
 				_mail = userFile.readline().strip()
-				print 'Read : ', _mail
+				print 'Read\t:', _mail
 		except IOError:
-			userFile = open(_userPath, 'w')
-			_mail = raw_input('Email? ')
+			if not exists(_userPath):
+				makedirs(_userPath)
+
+			userFile = open(_userFile, 'w')
+			_mail = raw_input('Email?\t')
 			userFile.write(_mail)
 
 		userFile.close()
@@ -59,6 +69,13 @@ def get_user_credentials():
 			exit()
 			
 	return _cred
+
+
+def extract_msg(url):
+
+	query = parse_qs(url)
+	messageHTML = '\n\n' + query['msg'][0]
+	print HTMLParser().unescape(messageHTML)
 
 def get_current_semester():
 

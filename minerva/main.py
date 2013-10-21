@@ -27,6 +27,14 @@ from docopt import docopt
 from minerva import MinervaSession
 
 def start():
+
+	try:
+		start_minerva()
+	except KeyboardInterrupt:
+		print '\n\nExiting...\nHope to see you soon!'
+
+
+def start_minerva():
 	
 	args = docopt(__doc__, version='0.0.1')
 	validRequest = True
@@ -45,14 +53,11 @@ def start():
 
 		session = MinervaSession(credentials)
 
-		print 'Logging in...'
 		session.login()
-		print 'Logged in !'
 		
 		if not args['login']:
 			session.deal_with_request(args)
 
-		print 'Logging out...'
 		session.logout()
 		print 'Logged out !'
 

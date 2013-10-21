@@ -1,5 +1,5 @@
 import mechanize
-import urllib
+import ui
 
 class MinervaSession:
 
@@ -39,12 +39,12 @@ class MinervaSession:
 		loginResponse = br.submit()
 
 		if loginResponse.geturl() == loginPage.geturl() :
-			print 'Authorization Failure - you have entered an invalid McGill Username / Password.'
+			print '\n\nAuthorization Failure - you have entered an invalid McGill Username / Password.'
 			print self.user.usermail
 			exit()
 		else:
 			self.logged_in = True
-			print urllib.unquote(urlloginResponse.geturl())
+			print ui.extract_msg(loginResponse.geturl())
 
 		return loginResponse.read()
 
