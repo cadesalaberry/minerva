@@ -35,14 +35,14 @@ Options:
 
 # Installation
 
-## Simple (with pip)
+### Simple (with pip)
 
 The package has not been submitted to the Python Package Index (PyPi) yet, but you will be able to install it using:
 
 	pip install minerva
 
 
-## Manual
+### Manual
 The simplest way to install the package is using the makefile provided in the repository. Provifing you already have git installed:
 
 	git clone https://github.com/cadesalaberry/minerga.git
@@ -54,7 +54,7 @@ And you are good to go ! you can then use the command-line client by typing it's
 	minerva
 
 
-## Uninstallation
+### Uninstallation
 
 To remove the package, just run:
 
