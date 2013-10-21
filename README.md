@@ -3,10 +3,12 @@ minerva
 
 A python interface to the aging minerva website.
 
+
 Usage
 =======
 
 Usage:
+
 	minerva login
 	minerva register <class_crns>...
 	minerva drop <class_crn>
@@ -18,12 +20,14 @@ Usage:
 	minerva -v | --version
 
 Examples:
+
 	minerva register 6969
 	minerva transcript
 	minerva check 321
 	minerva search ecse420
 
 Options:
+
 	-h, --help     Show this screen.
 	-v, --version  Print the current version.
 
