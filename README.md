@@ -3,7 +3,7 @@ Minerva
 
 A python interface to the aging minerva website.
 
-[![McGill Logo](./assets/mcgill-logo-transparent-small.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
+[![McGill Logo](./assets/mcgill-logo-transparent.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
 
 
 ## Usage
