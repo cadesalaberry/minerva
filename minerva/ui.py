@@ -62,3 +62,4 @@ def get_user_credentials():
 
 def get_current_semester():
 
+	return '201401'

@@ -1,12 +1,7 @@
 default: install
 
-build:
-	python setup.py build --build-base=./build
-
 install: setup.py
-	python setup.py install --user
+	python setup.py develop --user
 
 uninstall:
-	pip uninstall minerva
-
-reinstall: uninstall install
+	python setup.py develop -u --user
