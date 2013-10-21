@@ -1,4 +1,5 @@
 import mechanize
+import urllib
 
 class MinervaSession:
 
@@ -43,7 +44,7 @@ class MinervaSession:
 			exit()
 		else:
 			self.logged_in = True
-			print loginResponse.geturl()
+			print urllib.unquote(urlloginResponse.geturl())
 
 		return loginResponse.read()
 
@@ -60,6 +61,30 @@ class MinervaSession:
 		return logoutPage
 
 
+	def drop(self, crn):
+
+		print 'Dropping', crn, '...'
+
+		br = self.br
+
+		# Selects the right semester on the semester page.
+		br.open(self.site.quick_search)
+		br.select_form(nr=1)
+		br["term_in"] = ui.get_current_semester()
+
+		dropPage = br.submit()
+
+		print 'Class number', crn, 'dropped.'
+
+		return dropPage.read()
+
+
+	def list(self):
+
+		print 'Working on this function now.'
+
+
+
 	def deal_with_request(self, req):
 
 		print req
@@ -72,22 +97,3 @@ class MinervaSession:
 				print 'Not implemented yet.'
 
 			webpage.write(response)
-
-
-	def drop(self, crn):
-
-		print 'Dropping', crn, '...'
-
-		br = self.br
-
-		# Selects the right semester on the semester page.
-		br.open(self.site.quick_search)
-		br.select_form(nr=1)
-		br["term_in"] = '201309'
-
-		dropPage = br.submit()
-
-		print 'Class number', crn, 'dropped.'
-
-		return dropPage.read()
-
