@@ -1,4 +1,4 @@
-minerva
+Minerva
 =======
 
 A python interface to the aging minerva website.
@@ -6,7 +6,7 @@ A python interface to the aging minerva website.
 [![McGill Logo](./assets/mcgill-logo-transparent.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
 
 
-# Usage
+## Usage
 
 Usage:
 
@@ -33,7 +33,8 @@ Options:
 	-v, --version  Print the current version.
 
 
-# Installation
+## Installation
+
 
 ### Simple (with pip)
 
@@ -43,6 +44,7 @@ The package has not been submitted to the Python Package Index (PyPi) yet, but y
 
 
 ### Manual
+
 The simplest way to install the package is using the makefile provided in the repository. Provifing you already have git installed:
 
 	git clone https://github.com/cadesalaberry/minerga.git
@@ -61,7 +63,7 @@ To remove the package, just run:
 	make uninstall
 
 
-# SOCS Server bug
+## SOCS Server bug
 
 If you want to install minerva on your SOCS server, you might run into the same issues I did, providing we don't have root privileges. In order to solve it, I just had to modify my **~/.bashrc** file to look like this:
 
