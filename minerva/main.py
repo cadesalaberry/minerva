@@ -29,12 +29,12 @@ from minerva import MinervaSession
 def start():
 
 	try:
-		start_minerva()
+		handled_exit()
 	except KeyboardInterrupt:
 		print '\n\nExiting...\nHope to see you soon!'
 
 
-def start_minerva():
+def handled_exit():
 	
 	args = docopt(__doc__, version='0.0.1')
 	validRequest = True
