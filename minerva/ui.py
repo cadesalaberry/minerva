@@ -1,10 +1,9 @@
-import sys
-import getpass
 from os.path import expanduser
 from os.path import exists
 from os.path import join
 from os import makedirs
-
+import getpass
+import sys
 
 # Reads the user credentials
 def get_user_credentials():
@@ -66,8 +65,3 @@ def get_user_credentials():
 			exit()
 			
 	return _cred
-
-
-def get_current_semester():
-
-	return '201401'

@@ -5,7 +5,7 @@ import structures
 class MinervaSession:
 
 	def __init__(self, user):
-		
+
 		self.site = structures.minervaSite()
 		self.user = structures.minervaCred(user[0],user[1])
 		self.writer = MinervaWriter(self.site)
@@ -43,10 +43,8 @@ class MinervaSession:
 
 		print 'Dropping', crn, '...'
 
-		dropPage = self.write.drop(crn)
+		dropPage = self.writer.drop(crn)
 		
-		print 'Class number', crn, 'dropped.'
-
 		return dropPage.read()
 
 
@@ -57,10 +55,12 @@ class MinervaSession:
 
 	def deal_with_request(self, req):
 
-		print req
+		#print req
 
 		with open("response.html", "w") as webpage:
-			if req['drop']:
+			if req['login']:
+				response = self.login()
+			elif req['drop']:
 				response = self.drop(req['<class_crn>'])
 
 			else:

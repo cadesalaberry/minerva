@@ -22,9 +22,10 @@ Options:
 	-v, --version  Print the current version.
 """
 
-from minerva import ui
-from docopt import docopt
 from minerva import MinervaSession
+from docopt import docopt
+import ui
+
 
 def start():
 
@@ -53,10 +54,10 @@ def handled_exit():
 
 		session = MinervaSession(credentials)
 
-		session.login()
-		
 		if not args['login']:
-			session.deal_with_request(args)
+			session.login()
+
+		session.deal_with_request(args)
 
 		session.logout()
 		print 'Logged out !'

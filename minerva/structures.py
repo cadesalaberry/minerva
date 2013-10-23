@@ -14,3 +14,7 @@ class minervaCred:
 		self.password = _password
 		self.loggedin = False
 
+
+def currentsemester():
+
+	return '201401'
