@@ -33,30 +33,10 @@ def get_user_credentials():
 		IOError: An error occurred accessing the username file.
 	"""
 
-	_userPath = expanduser("~/.minerva/")
-	_userFile = join(_userPath, 'user')
-
 	if sys.stdin.isatty():
 		# Gets the credentials from the userFile if it exists
 		
-		try:
-			with open(_userFile) as userFile:
-				_mail = userFile.readline().strip()
-				print 'Read\t:', _mail
-
-		except IOError:
-			if not exists(_userPath):
-				makedirs(_userPath)
-
-			userFile = open(_userFile, 'w')
-			_mail = raw_input('Email\t:')
-
-			if _mail.contains('.') and not _mail.contains('@'):
-				_mail = _mail + '@mail.mcgill.ca';
-
-			userFile.write(_mail)
-
-		userFile.close()
+		_mail = getusername()
 
 		_pin = getpass.getpass(stream=sys.stderr)
 		_cred = [_mail, _pin]
@@ -70,3 +50,28 @@ def get_user_credentials():
 			exit()
 			
 	return _cred
+
+def getusername():
+
+	_userPath = expanduser("~/.minerva/")
+	_userFile = join(_userPath, 'user')
+
+	if not exists(_userPath):
+		makedirs(_userPath)
+
+	userFile = open(_userFile, 'r+')
+
+	_mail = userFile.readline().strip()
+	
+	if '@' and '.' in _mail:
+		print 'Read\t:', _mail
+	else:
+		_mail = raw_input('Email\t: ')
+
+	if '.' in _mail and not '@' in _mail:
+		_mail = _mail + '@mail.mcgill.ca';
+
+	userFile.write(_mail)
+	userFile.close()
+
+	return _mail
