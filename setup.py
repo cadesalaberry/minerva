@@ -10,7 +10,7 @@ dependencies=['docopt','mechanize','beautifulsoup4']
 setup(
 
 	name='minerva',
-	version='0.0.1',
+	version='0.0.2',
 	description='A python interface to the aging minerva website.',
 	long_description=open('README.md').read(),
 	url='https://github.com/cadesalaberry/minerva',
@@ -24,7 +24,7 @@ setup(
 		],
 	},
 	classifiers={
-		'Development Status :: 1 - Alpha',
+		'Development Status :: 2 - Alpha',
 		'Intended Audience :: Developers',
 		'NaturalLanguage :: English',
 		'License :: OSI Approved :: MIT License',
