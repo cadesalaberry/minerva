@@ -10,13 +10,13 @@ def get_user_credentials():
 
 	"""Gets the user credentials from the commandline.
 
-    Asks the user for his McGill email address and password.
+	Asks the user for his McGill email address and password.
 
 
-    Args:
-    	None
+	Args:
+		None
 
-    Returns:
+	Returns:
 		An array containing the user credentials. For example:
 		
 		['username','password']
@@ -29,7 +29,7 @@ def get_user_credentials():
 
 			minerva register 69 < credentials.txt
 
-    Raises:
+	Raises:
 		IOError: An error occurred accessing the username file.
 	"""
 
@@ -43,12 +43,17 @@ def get_user_credentials():
 			with open(_userFile) as userFile:
 				_mail = userFile.readline().strip()
 				print 'Read\t:', _mail
+
 		except IOError:
 			if not exists(_userPath):
 				makedirs(_userPath)
 
 			userFile = open(_userFile, 'w')
-			_mail = raw_input('Email?\t')
+			_mail = raw_input('Email\t:')
+
+			if _mail.contains('.') and not _mail.contains('@'):
+				_mail = _mail + '@mail.mcgill.ca';
+
 			userFile.write(_mail)
 
 		userFile.close()
