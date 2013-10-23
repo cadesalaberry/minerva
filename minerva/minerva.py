@@ -1,57 +1,37 @@
 import mechanize
+import structures
+from writer import MinervaWriter
+from reader import MinervaReader
 import ui
 
 class MinervaSession:
 
-	class minervaSite:
-		def __init__(self):
-			self.base = 'https://horizon.mcgill.ca/pban1/'
-			self.login = self.base + 'twbkwbis.P_ValLogin'
-			self.logout = self.base + 'twbkwbis.P_Logout'
-			self.search = self.base + 'bwckgens.p_proc_term_date'
-			self.quick_search = self.base + 'bwskfreg.P_AltPin'
-			self.result = self.base + 'twbkwbis.P_Logout'
-
-
-	class minervaCred:
-		def __init__(self, _mail, _password):
-			self.usermail = _mail
-			self.password = _password
-
-
 	def __init__(self, user):
-		self.site = MinervaSession.minervaSite()
-		self.user = MinervaSession.minervaCred(user[0],user[1])
-		self.logged_in = False
+		self.site = structures.minervaSite()
+		self.user = structures.minervaCred(user[0],user[1])
 		self.br = mechanize.Browser()
+		self.writer = MinervaWriter(self.site)
+		self.reader = MinervaReader(self.site)
 
 
 	def login(self) :
-		br = self.br
-
-		# Deals with the login page
-		loginPage = br.open(self.site.login)
-		br.select_form(name='loginform1')
-		br["sid"] = self.user.usermail
-		br["PIN"] = self.user.password
 
 		# Logs in, This page can confirm a succesful login.
-		loginResponse = br.submit()
+		loginResponse = self.writer.login(self.user)
 
 		if loginResponse.geturl() == loginPage.geturl() :
 			print '\n\nAuthorization Failure - you have entered an invalid McGill Username / Password.'
-			print self.user.usermail
 			exit()
 		else:
-			self.logged_in = True
-			print ui.extract_msg(loginResponse.geturl())
+			self.user.loggedin = True
+			print self.reader.welcomemsg(loginResponse)
 
 		return loginResponse.read()
 
 
 	def logout(self):
 		
-		if not self.logged_in:
+		if not self.user.loggedin:
 			print 'Please login first.'
 			exit()
 

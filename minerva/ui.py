@@ -1,8 +1,5 @@
 import sys
 import getpass
-from urlparse import urlparse
-from urlparse import parse_qs
-from HTMLParser import HTMLParser
 from os.path import expanduser
 from os.path import exists
 from os.path import join
@@ -70,12 +67,6 @@ def get_user_credentials():
 			
 	return _cred
 
-
-def extract_msg(url):
-
-	query = parse_qs(url)
-	messageHTML = '\n\n' + query['msg'][0]
-	print HTMLParser().unescape(messageHTML)
 
 def get_current_semester():
 

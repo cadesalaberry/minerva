@@ -22,7 +22,7 @@ Options:
 	-v, --version  Print the current version.
 """
 
-import ui
+from minerva import ui
 from docopt import docopt
 from minerva import MinervaSession
 
