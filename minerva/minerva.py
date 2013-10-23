@@ -79,4 +79,4 @@ class MinervaSession:
 			else:
 				print 'Not implemented yet.'
 
-			webpage.write(response)
+			#webpage.write(response)

@@ -4,7 +4,7 @@ class minervaSite:
 		self.login = self.base + 'twbkwbis.P_ValLogin'
 		self.logout = self.base + 'twbkwbis.P_Logout'
 		self.search = self.base + 'bwckgens.p_proc_term_date'
-		self.transcript = self.base + 'bzsktran.P_Display_Form'
+		self.transcript = self.base + 'bzsktran.P_Display_Form?user_type=S&tran_type=V'
 		self.quick_search = self.base + 'bwskfreg.P_AltPin'
 		self.result = self.base + 'twbkwbis.P_Logout'
 
