@@ -47,7 +47,7 @@ The package has not been submitted to the Python Package Index (PyPi) yet, but y
 
 The simplest way to install the package is using the makefile provided in the repository. Provifing you already have git installed:
 
-	git clone https://github.com/cadesalaberry/minerga.git
+	git clone https://github.com/cadesalaberry/minerva.git
 	cd minerva
 	make
 
