@@ -8,8 +8,12 @@ class MinervaReader:
 	def __init__(self, site):
 		self.s = site
 
-	def welcomemsg(html):
-
+	def welcomemsg(self, html):
 		query = parse_qs(html.geturl())
-		messageHTML = '\n\n' + query['msg'][0]
-		return HTMLParser().unescape(messageHTML)
+		messg = HTMLParser().unescape(query['msg'][0])
+		messg = messg.replace('<b>', '\n').replace('</b>', '\n')
+		return messg
+
+	def welcomeerr(self, html):
+		# Instead we should try reading the error message displayed on the html
+		return 'Authorization Failure - you have entered an invalid McGill Username / Password.'

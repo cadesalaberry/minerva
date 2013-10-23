@@ -1,15 +1,13 @@
-import mechanize
-import structures
 from writer import MinervaWriter
 from reader import MinervaReader
-import ui
+import structures
 
 class MinervaSession:
 
 	def __init__(self, user):
+		
 		self.site = structures.minervaSite()
 		self.user = structures.minervaCred(user[0],user[1])
-		self.br = mechanize.Browser()
 		self.writer = MinervaWriter(self.site)
 		self.reader = MinervaReader(self.site)
 
@@ -19,12 +17,12 @@ class MinervaSession:
 		# Logs in, This page can confirm a succesful login.
 		loginResponse = self.writer.login(self.user)
 
-		if loginResponse.geturl() == loginPage.geturl() :
-			print '\n\nAuthorization Failure - you have entered an invalid McGill Username / Password.'
+		if loginResponse.geturl() == self.site.login:
+			print self.reader.welcomeerr(loginResponse)
 			exit()
-		else:
-			self.user.loggedin = True
-			print self.reader.welcomemsg(loginResponse)
+		
+		self.user.loggedin = True
+		print self.reader.welcomemsg(loginResponse)
 
 		return loginResponse.read()
 
@@ -36,24 +34,17 @@ class MinervaSession:
 			exit()
 
 		# Logs out.
-		logoutPage = self.br.open(self.site.logout)
+		logoutPage = self.writer.logout()
 
-		return logoutPage
+		return logoutPage.read()
 
 
 	def drop(self, crn):
 
 		print 'Dropping', crn, '...'
 
-		br = self.br
-
-		# Selects the right semester on the semester page.
-		br.open(self.site.quick_search)
-		br.select_form(nr=1)
-		br["term_in"] = ui.get_current_semester()
-
-		dropPage = br.submit()
-
+		dropPage = self.write.drop(crn)
+		
 		print 'Class number', crn, 'dropped.'
 
 		return dropPage.read()
@@ -62,7 +53,6 @@ class MinervaSession:
 	def list(self):
 
 		print 'Working on this function now.'
-
 
 
 	def deal_with_request(self, req):
