@@ -17,3 +17,8 @@ class MinervaReader:
 	def welcomeerr(self, html):
 		# Instead we should try reading the error message displayed on the html
 		return 'Authorization Failure - you have entered an invalid McGill Username / Password.'
+
+	def transcript(self, html, semester='all'):
+		bs = BeautifulSoup(html)
+
+		return bs.find("tr")

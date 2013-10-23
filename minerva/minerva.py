@@ -48,6 +48,14 @@ class MinervaSession:
 		return dropPage.read()
 
 
+	def transcript(self):
+
+		transcriptPage = self.writer.transcript()
+		grades = self.reader.transcript(transcriptPage)
+		print grades
+		
+		return grades
+
 	def list(self):
 
 		print 'Working on this function now.'
@@ -58,10 +66,15 @@ class MinervaSession:
 		#print req
 
 		with open("response.html", "w") as webpage:
+			
 			if req['login']:
 				response = self.login()
+			
 			elif req['drop']:
 				response = self.drop(req['<class_crn>'])
+
+			elif req['transcript']:
+				response = self.transcript()
 
 			else:
 				print 'Not implemented yet.'

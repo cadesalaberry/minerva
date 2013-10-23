@@ -12,7 +12,6 @@ class MinervaWriter:
 
 		# Deals with the login page
 		loginPage = self.bwsr.open(self.site.login)
-
 		self.bwsr.select_form(name='loginform1')
 		self.bwsr['sid'] = user.usermail
 		self.bwsr['PIN'] = user.password
@@ -36,9 +35,11 @@ class MinervaWriter:
 		return self.setsemester(semester)
 
 
+	def transcript(self):
+
+		return self.bwsr.open(self.site.transcript)
+
+
 	def logout(self):
 
-		# Logs out.
-		logoutPage = self.bwsr.open(self.site.logout)
-
-		return logoutPage
+		return self.bwsr.open(self.site.logout)
