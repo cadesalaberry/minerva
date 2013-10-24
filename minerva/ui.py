@@ -57,23 +57,28 @@ def getusername():
 
 	_userPath = expanduser("~/.minerva/")
 	_userFile = join(_userPath, 'user')
+	_mail = ""
 
-	if not exists(_userPath):
-		makedirs(_userPath)
+	if not exists(_userFile):
+		if not exists(_userPath):
+			makedirs(_userPath)
+		open(_userFile, 'w').close()
 
 	userFile = open(_userFile, 'r+')
 
-	_mail = userFile.readline().strip()
+	_mailSaved = userFile.readline().strip()
 	
-	if '@' and '.' in _mail:
-		print 'Read\t:', _mail
+	if '@' and '.' in _mailSaved:
+		print 'Read\t:', _mailSaved
+		_mail = _mailSaved
 	else:
 		_mail = raw_input('Email\t: ')
 
 	if '.' in _mail and not '@' in _mail:
 		_mail = _mail + '@mail.mcgill.ca';
 
-	userFile.write(_mail)
+	if _mail == _mailSaved:
+		userFile.write(_mail)
 	userFile.close()
 
 	return _mail
