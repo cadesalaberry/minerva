@@ -49,7 +49,7 @@ class MinervaReader:
 		print table[0].text
 		rows = iter(table)
 		# headers = [col.text
-		for i, col in next(rows):print i, col.text
+		for col in next(rows):print col.text
 		# ]
 
 		for row in rows:
