@@ -1,9 +1,8 @@
+from getpass import getpass
 from os import makedirs
 from os import path
-import getpass
 import sys
 
-# Reads the user credentials
 def get_user_credentials():
 
 	"""Gets the user credentials from the commandline.
@@ -32,7 +31,7 @@ def get_user_credentials():
 	if sys.stdin.isatty():
 		# Gets the credentials from the userFile if it exists
 		_mail = getusername()
-		_pass = getpass.getpass(stream=sys.stderr)
+		_pass = getpass(stream=sys.stderr)
 		_cred = [_mail, _pass]
 
 	else:
@@ -68,7 +67,7 @@ def getusername(reset=False):
 			'john.doe@mail.mcgill.ca'
 
 	Raises:
-		None
+		IOError: An error occurred accessing the username file.
 	"""
 
 	_mailSaved = savedusername()
@@ -90,10 +89,34 @@ def getusername(reset=False):
 
 	return _mail
 
-"""
 
-"""
 def savedusername(username=""):
+
+	"""
+	Reads the email address stored in the userfile.
+	if the file does not exist, it creates it.
+
+	It also stores the username passed as argument if 
+	it is not empty.
+
+	Args:
+		A username as a string.
+
+		Example:
+
+			'john.doe@mail.mcgill.ca'
+
+	Returns:
+		Either a string containing the username that has been read,
+		either a string containing the username that has just been stored.
+
+		Example:
+
+			'john.doe@mail.mcgill.ca'
+
+	Raises:
+		IOError: An error occurred accessing the username file.
+	"""
 
 	_userPath = path.expanduser("~/.minerva/")
 	_userFile = path.join(_userPath, 'user')
