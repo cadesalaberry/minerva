@@ -34,37 +34,35 @@ class MinervaReader:
 		# div[14]: class="div5"				-> empty
 		# div[15]: class="div6"				-> empty
 		div = soup.body.find('div', {'class':'pagebodydiv'})
-		tbl = div.find_all('table', {'class':'dataentrytable'})[-1]
-		print tbl.find_all(True)[0]
-
-		# print str(tbl.find('tr')), '<'
-		self.table2py2(tbl)
-		# soup.body.find_all('div')[-10]
-		# tables = div.find_all('table')[-3]
+		tbl = div.find('table', {'class':'dataentrytable', 'width':'100%'})
+		
+		print  len(tbl.findAll('tr'))
+		
+		matrix = [col.findAll('td') for col in tbl.findAll('tr')]
+		self.table2py2(matrix)
+		
 		return True
 
-	def table2py2(self, fulltable):
+	def table2py2(self, matrix):
 
-		table = fulltable.findAll('tr')
-		print table[0].text
-		rows = iter(table)
-		# headers = [col.text
-		for col in next(rows):print col.text
-		# ]
+		# table = fulltable.find('tr')
+		# table2 = table.find('tr')
+		
+		print matrix[0]
+		rows = iter(matrix)
 
-		for row in rows:
-			cells = row.findAll('td')
-			values = [cell.text for cell in cells]
-			print values
-			#print dict(zip(headers, values))
+		headers = 0#[col.next_sibling for col in rows.next.findAll('td')]
+		print headers
+
 
 	def table2py(self, text):
 
 		table = etree.XML(text)
+		#print(etree.tostring(table, pretty_print=True))
 		rows = iter(table)
 		headers = [col.text for col in next(rows)]
 		print headers
-		for row in rows:
-			values = [col.text for col in row]
-			print values
-			#print dict(zip(headers, values))
+		# for row in rows:
+		# 	values = [col.text for col in row]
+		# 	print values
+		# 	#print dict(zip(headers, values))
