@@ -37,7 +37,7 @@ def start():
 
 def handled_exit():
 	
-	args = docopt(__doc__, version='0.0.1')
+	args = docopt(__doc__, version='0.0.2')
 	validRequest = True
 
 	if args['register']:
