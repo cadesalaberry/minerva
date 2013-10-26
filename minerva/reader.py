@@ -39,7 +39,9 @@ class MinervaReader:
 		print  len(tbl.findAll('tr'))
 		
 		matrix = [col.findAll('td') for col in tbl.findAll('tr')]
-		self.table2py2(matrix)
+		m2 = [[cell.text for cell in col] for col in matrix]
+		# m3 = [row.remove('\xa0') for row in m2]
+		self.table2py2(m2)
 		
 		return True
 
@@ -47,8 +49,10 @@ class MinervaReader:
 
 		# table = fulltable.find('tr')
 		# table2 = table.find('tr')
-		
-		print matrix[0]
+		for line in matrix:
+			print len(line)
+			if len(line) == 11:
+				print line
 		rows = iter(matrix)
 
 		headers = 0#[col.next_sibling for col in rows.next.findAll('td')]
