@@ -73,7 +73,7 @@ def getusername(reset=False):
 	_mailSaved = savedusername()
 	_mail = ""
 	
-	if reset or ('@' and '.' in _mailSaved):
+	if not reset or ('@' and '.' in _mailSaved):
 		print 'Read\t:', _mailSaved
 		_mail = _mailSaved
 	else:
