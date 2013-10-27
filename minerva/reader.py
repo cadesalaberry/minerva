@@ -22,41 +22,48 @@ class MinervaReader:
 	def transcript(self, html, semester='all'):
 		soup = BeautifulSoup(html)
 
-		# div[4] : class="plaintable"		-> title + static header
-		# div[5] : class="staticheaders"	-> empty
-		# div[7] : class="infotextdiv"		-> Contains error message ?
-		# div[8] : class="pagefooterdiv"	-> Form Name: SWFTRAN
-		# div[9] : class="poweredbydiv"
-		# div[10]: class="div1"				-> empty
-		# div[11]: class="div2"				-> empty
-		# div[12]: class="div3"				-> empty
-		# div[13]: class="div4"				-> empty
-		# div[14]: class="div5"				-> empty
-		# div[15]: class="div6"				-> empty
+		# Gets the div containing the table
 		div = soup.body.find('div', {'class':'pagebodydiv'})
+
+		# Gets the table inside that div
 		tbl = div.find('table', {'class':'dataentrytable', 'width':'100%'})
-		
-		print  len(tbl.findAll('tr'))
-		
-		matrix = [col.findAll('td') for col in tbl.findAll('tr')]
-		m2 = [[cell.text for cell in col] for col in matrix]
-		# m3 = [row.remove('\xa0') for row in m2]
-		self.table2py2(m2)
+	
+		self.table2py2(tbl)
 		
 		return True
 
-	def table2py2(self, matrix):
+	def table2py2(self, tbl):
 
-		# table = fulltable.find('tr')
-		# table2 = table.find('tr')
-		for line in matrix:
-			print len(line)
-			if len(line) == 11:
-				print line
-		rows = iter(matrix)
+			
+		# Turns the html table into a list of lists (2D)
+		html_matrix = [col.findAll('td') for col in tbl.findAll('tr')]
 
-		headers = 0#[col.next_sibling for col in rows.next.findAll('td')]
+		# Gets rid of the html formatting to get only text
+		text_matrix = [[cell.text.strip() for cell in col] for col in html_matrix]
+
+		# Gets rid of empty cells
+		filtered = [[cell for cell in col if cell != ''] for col in text_matrix]
+		
+		# Gets rid of empty rows
+		filtered = [col for col in filtered if col]
+
+		rows = iter(filtered)
+		headers = [col for col in next(rows)]
+
 		print headers
+		for line in filtered:
+			print len(line)#, line
+			l = len(line)
+			if l == 8:
+				print 'Semester Summary', l, line
+			elif l == 7:
+				print 'Course', l, line
+			elif l == 1:
+				print 'Other', l, line
+			elif l == 6:
+				print 'Unknown', l, line
+			#if len(line) == 1:
+				
 
 
 	def table2py(self, text):
