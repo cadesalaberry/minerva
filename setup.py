@@ -9,18 +9,18 @@ dependencies=['docopt','mechanize','beautifulsoup4']
 
 setup(
 
-	name='minerva',
+	name='minervashadow',
 	version='0.0.2',
 	description='A python interface to the aging minerva website.',
 	long_description=open('README.md').read(),
-	url='https://github.com/cadesalaberry/minerva',
+	url='https://github.com/cadesalaberry/minervashadow',
 	author='cadesalaberry',
 	author_email='cadesalaberry@yahoo.com',
 	install_requires=dependencies,
 	packages=['minerva'],
 	entry_points={
 		'console_scripts': [
-			'minerva=minerva.main:start'
+			'minervashadow=minervashadow.main:start'
 		],
 	},
 	classifiers={

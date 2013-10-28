@@ -51,7 +51,9 @@ class MinervaSession:
 	def transcript(self):
 
 		transcriptPage = self.writer.transcript()
+		
 		grades = self.reader.transcript(transcriptPage)
+
 		print grades
 		
 		return grades

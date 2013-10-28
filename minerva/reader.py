@@ -51,19 +51,38 @@ class MinervaReader:
 		headers = [col for col in next(rows)]
 
 		print headers
+		sizes = []
+		courses = []
 		for line in filtered:
-			print len(line)#, line
 			l = len(line)
-			if l == 8:
-				print 'Semester Summary', l, line
-			elif l == 7:
-				print 'Course', l, line
-			elif l == 1:
-				print 'Other', l, line
+			sizes.append(l)
+			print l, line
+			if l == 1:
+				if 'Fall' in line or 'Winter' in line or 'Summer' in line:
+					print 'Added a semester.'
+					courses = courses.append(line)
+				pass
+				# print l, 'Semester Name++', line
+			elif l == 4:
+				pass#print l, 'Unknown', line
+			elif l == 5:
+				pass#print l, 'Unknown', line
 			elif l == 6:
-				print 'Unknown', l, line
-			#if len(line) == 1:
-				
+				print 'Added a course with missing info (6/8)'
+				courses = courses[-1].append(line)
+				pass# print l, 'Course-', line
+			elif l == 7:
+				print 'Added a course with missing info (7/8)'
+				courses = courses[-1].append(line)
+				pass# print l, 'Course', line
+			elif l == 8:
+				pass# print l, 'TERM GPA', line
+			elif l == 9:
+				pass# print l, 'CUM GPA', line
+			elif l == 23:
+				pass# print l, 'Advanced Standing', line			
+		print courses
+		print list(set(sizes))	
 
 
 	def table2py(self, text):
