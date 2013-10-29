@@ -22,10 +22,9 @@ Options:
 	-v, --version  Print the current version.
 """
 
-from minervashadow import MinervaSession
+from minerva import MinervaSession
 from docopt import docopt
 import ui
-
 
 def start():
 

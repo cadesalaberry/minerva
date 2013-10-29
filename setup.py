@@ -2,15 +2,17 @@
 try:
 	from setuptools import setup 
 except:
-	from disutils.core import core
+	from disutils.core import setup
 
 
 dependencies=['docopt','mechanize','beautifulsoup4']
 
+version = __import__('minervashadow').get_version()
+
 setup(
 
 	name='minervashadow',
-	version='0.0.2',
+	version=version,
 	description='A python interface to the aging minerva website.',
 	long_description=open('README.md').read(),
 	url='https://github.com/cadesalaberry/minervashadow',
