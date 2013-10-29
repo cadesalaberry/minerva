@@ -17,7 +17,7 @@ setup(
 	author='cadesalaberry',
 	author_email='cadesalaberry@yahoo.com',
 	install_requires=dependencies,
-	packages=['minerva'],
+	packages=['minervashadow'],
 	entry_points={
 		'console_scripts': [
 			'minervashadow=minervashadow.main:start'

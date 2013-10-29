@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 """
 Usage:
-	minerva login
-	minerva register <class_crns>...
-	minerva drop <class_crn>
-	minerva transcript
-	minerva check <class_crn>
-	minerva search <class_name> | <class_crn>
-	minerva list [all]
-	minerva -h | --help
-	minerva -v | --version
+	minervashadow login
+	minervashadow register <class_crns>...
+	minervashadow drop <class_crn>
+	minervashadow transcript
+	minervashadow check <class_crn>
+	minervashadow search <class_name> | <class_crn>
+	minervashadow list [all]
+	minervashadow -h | --help
+	minervashadow -v | --version
 
 Examples:
-	minerva register 6969
-	minerva transcript
-	minerva check 321
-	minerva search ecse420
+	minervashadow register 6969
+	minervashadow transcript
+	minervashadow check 321
+	minervashadow search ecse420
 
 Options:
 	-h, --help     Show this screen.
 	-v, --version  Print the current version.
 """
 
-from minerva import MinervaSession
+from minervashadow import MinervaSession
 from docopt import docopt
 import ui
 
@@ -64,5 +64,5 @@ def handled_exit():
 
 	else:
 		print 'Error: Invalid input.'
-		print 'try "minerva -h" to display the help screen.'
+		print 'try "minervashadow -h" to display the help screen.'
 		print 'Exiting...'
