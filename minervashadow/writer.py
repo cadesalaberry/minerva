@@ -1,5 +1,5 @@
+from structures import current_semester as curr_semester
 import mechanize
-from structures import currentsemester
 
 class MinervaWriter:
 
@@ -29,7 +29,7 @@ class MinervaWriter:
 		return self.bwsr.submit()	
 
 
-	def drop(self, crn, semester=currentsemester()):
+	def drop(self, crn, semester=curr_semester()):
 
 		print 'The class was not actually dropped, missing implementation.'
 		return self.setsemester(semester)
