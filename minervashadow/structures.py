@@ -18,27 +18,16 @@ class minervaCred:
 	def __repr__(self):
 		return '<Credentials of: %s>' % self.usermail
 
-class minervaCurriculum:
-	def __init__(self, _education, _diploma):
-		self.education = _education
-		self.semesters = []
-		self.diploma = _diploma
-		
-	def __repr__(self):
-		return '<Curriculum: %s with %s semesters>' % self._diploma, len(self.semesters)
-
-	def add(self, semester):
-		self.semesters.append(semester)
 
 class minervaSemester:
 	def __init__(self, _semester, _year):
-		self.name = ' '.join(_semester, _year)
+		self.name = ' '.join((_semester, _year))
 		self.year = _year
 		self.classes = []
 		self.semester = _semester
 		self.standing = ''
 		self.advanced = []
-		self.description = None
+		self.description = ''
 
 	def __repr__(self):
 		return '<Semester: %s>' % self.name
@@ -47,7 +36,23 @@ class minervaSemester:
 		self.semesters.append(course)
 
 
+class minervaCurriculum:
+	def __init__(self, _education='', _diploma=''):
+		self.education = _education
+		self.semesters = []
+		self.diploma = _diploma
+		
+	def __repr__(self):
+		return "<Curriculum: {0} ({1} semesters)>".format(self.diploma, len(self.semesters))
 
+	def addSemester(self, semester):
+		self.semesters.append(semester)
+
+	def lastSemester(self):
+		if not self.semesters:
+			sem = minervaSemester('Empty','Semester')
+			self.addSemester(sem)
+		return self.semesters[-1]
 
 def current_semester():
 

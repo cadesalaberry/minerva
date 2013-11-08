@@ -3,6 +3,7 @@ from urlparse import urlparse
 from urlparse import parse_qs
 from bs4 import BeautifulSoup
 import structures
+import re
 
 class MinervaReader:
 
@@ -16,7 +17,7 @@ class MinervaReader:
 		return messg
 
 	def welcomeerr(self, html):
-		# Instead we should try reading the error message displayed on the html
+		# TODO:Instead we should try reading the error message displayed on the html
 		return 'Authorization Failure - you have entered an invalid McGill Username / Password.'
 
 	def transcript(self, html, semester='all'):
@@ -66,43 +67,97 @@ class MinervaReader:
 
 	def _semesters_from_table(self, table):
 
-		def is_semester_header(line):
-			semesters = ('Fall', 'Winter', 'Summer')
-			return any(semester in line for semester in semesters)
+		def _is_semester_header(line):
+			sem_header_regex = re.compile('^(Fall|Winter|Summer) ([0-9]{4})$')
+			return sem_header_regex.match(line[0])
+
+		def _is_standing(line):
+			return line[0].startswith('Standing: ')
+
+		def _is_education(line):
+			return line[0].startswith('PREVIOUS EDUCATION ')
+
+		def _is_description(line):
+			return line[0].startswith('Bachelor of ')
+
+		def _is_standing_header(line):
+			return line[0] == 'Advanced Standing& Transfer Credits:'
+
+		def _course_missing_avg(line):
+			try:
+				int(line[-1])
+				return True
+			except ValueError:
+				return False
+
+		def _course_missing_remarks(line):
+			try:
+				int(line[5])
+				return True
+			except ValueError:
+				return False
 
 		rows = iter(table)
 		headers = [col for col in next(rows)]
+		standing_headers = []
 
 		print headers
-		sizes = []
-		courses = []
+
+		curriculum = structures.minervaCurriculum()
+
 		for line in table:
 			l = len(line)
-			sizes.append(l)
-			print l, line
+			#print line
 			if l == 1:
-				if is_semester_header(line):
-					#print 'Added a semester.'
-					courses = courses.append(line)
-				pass
-				# print l, 'Semester Name++', line
+				if _is_semester_header(line):
+					title = line[0].split(' ')
+					sem = structures.minervaSemester(title[0],title[1])
+					curriculum.addSemester(sem)
+					print 'Added a semester.', sem
+
+				elif _is_standing(line):
+					curriculum.lastSemester().standing = line[0]
+					#print curriculum.lastSemester().standing
+
+				elif _is_education(line):
+					education = re.sub('^PREVIOUS EDUCATION ', '', line[0])
+					curriculum.education = education
+					#print curriculum.education
+
+				elif _is_description(line):
+					description = re.sub('(\S[A-Z])', r' \1', line[0])
+					curriculum.description = description
+				else:
+					#print l, 'Semester Name++', line
+					pass
+
 			elif l == 4:
-				pass#print l, 'Unknown', line
+				#print l, 'Exemption Ignored', line
+				pass
+
 			elif l == 5:
-				pass#print l, 'Unknown', line
-			elif l == 6:
+				if _is_standing_header(line):
+					if not standing_headers:
+						standing_headers = line
+				else:
+					print l, 'Unknown', line
+					pass
+
+			elif l == 6 or l == 7:
+				if _course_missing_avg(line):
+					line.append('')
+
+				if _course_missing_remarks(line):
+					line.insert(5, '')
 				#print 'Added a course with missing info (6/8)'
 				#courses = courses[-1].append(line)
-				pass# print l, 'Course-', line
-			elif l == 7:
-				#print 'Added a course with missing info (7/8)'
-				#courses = courses[-1].append(line)
-				pass# print l, 'Course', line
+				print len(line), line
+				pass
+
 			elif l == 8:
 				pass# print l, 'TERM GPA', line
 			elif l == 9:
 				pass# print l, 'CUM GPA', line
 			elif l == 23:
 				pass# print l, 'Advanced Standing', line			
-		print courses
-		print list(set(sizes))
+		print curriculum
