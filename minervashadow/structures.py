@@ -43,6 +43,9 @@ class minervaSemester:
 	def __repr__(self):
 		return '<Semester: %s>' % self.name
 
+	def add(self, course):
+		self.semesters.append(course)
+
 
 
 

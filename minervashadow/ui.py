@@ -42,6 +42,9 @@ def get_user_credentials():
 		print 'autologin\t:', _cred[0] 
 		if len(_cred) != 2:
 			print 'Error: Malformed input. Missing arguments.'
+			print 'Here is what your input should look like:'
+			print 'jonh.doe@mail.mcgill.ca'
+			print 'password'
 			exit()
 			
 	return _cred
