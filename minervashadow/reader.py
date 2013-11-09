@@ -1,8 +1,8 @@
+import utils.structures as structures
 from HTMLParser import HTMLParser
 from urlparse import urlparse
 from urlparse import parse_qs
 from bs4 import BeautifulSoup
-import structures
 import re
 
 class MinervaReader:
