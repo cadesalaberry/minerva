@@ -3,7 +3,7 @@ Minerva Shadow
 
 A python interface to the aging minervashadow website.
 
-[![McGill Logo](./assets/shadow-logo-transparent.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
+[![McGill Logo](./assets/shadow-logo-transparent-big.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
 
 
 ## Usage
