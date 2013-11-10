@@ -1,6 +1,6 @@
+import utils.structures as structures
 from writer import MinervaWriter
 from reader import MinervaReader
-import structures
 
 class MinervaSession:
 

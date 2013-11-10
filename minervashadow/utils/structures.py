@@ -23,17 +23,17 @@ class minervaSemester:
 	def __init__(self, _semester, _year):
 		self.name = ' '.join((_semester, _year))
 		self.year = _year
-		self.classes = []
+		self.courses = []
 		self.semester = _semester
 		self.standing = ''
 		self.advanced = []
 		self.description = ''
 
 	def __repr__(self):
-		return '<Semester: %s>' % self.name
+		return "<Semester: {0} ({1} courses)>".format(self.name, len(self.courses))
 
-	def add(self, course):
-		self.semesters.append(course)
+	def addCourse(self, course):
+		self.courses.append(course)
 
 
 class minervaCurriculum:

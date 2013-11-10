@@ -24,7 +24,7 @@ Options:
 
 from minerva import MinervaSession
 from docopt import docopt
-import ui
+import ui.cli as cli
 
 def start():
 
@@ -49,7 +49,7 @@ def handled_exit():
 
 	if validRequest:
 
-		credentials = ui.get_user_credentials()
+		credentials = cli.get_user_credentials()
 
 		session = MinervaSession(credentials)
 

@@ -113,7 +113,7 @@ class MinervaReader:
 					title = line[0].split(' ')
 					sem = structures.minervaSemester(title[0],title[1])
 					curriculum.addSemester(sem)
-					print 'Added a semester.', sem
+					print curriculum.lastSemester()
 
 				elif _is_standing(line):
 					curriculum.lastSemester().standing = line[0]

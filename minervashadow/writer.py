@@ -1,4 +1,4 @@
-from structures import current_semester as curr_semester
+from utils.structures import current_semester as curr_semester
 import mechanize
 
 class MinervaWriter:

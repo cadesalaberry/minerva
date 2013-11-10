@@ -99,8 +99,7 @@ def savedusername(username=""):
 	Reads the email address stored in the userfile.
 	if the file does not exist, it creates it.
 
-	It also stores the username passed as argument if 
-	it is not empty.
+	It also stores the username passed as argument if it is not empty.
 
 	Args:
 		A username as a string.

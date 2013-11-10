@@ -1,7 +1,9 @@
 VERSION = (0, 0, 2, 'alpha', 0)
 
 def get_version(version=None):
-	"Returns a PEP 386-compliant version number from VERSION."
+	"""
+	Returns a PEP 386-compliant version number from VERSION.
+	"""
 	
 	main_version, sub_version = '', ''
 
