@@ -1,9 +1,11 @@
+[![McGill Logo](./assets/shadow-logo-transparent-big.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
+
+
+
 Minerva Shadow
 =======
 
 A python interface to the aging minervashadow website.
-
-[![McGill Logo](./assets/shadow-logo-transparent-big.png)](https://horizon.mcgill.ca/pban1/twbkwbis.P_WWWLogin "Minerva Webpage")
 
 
 ## Usage
