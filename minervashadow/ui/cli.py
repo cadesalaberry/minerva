@@ -1,7 +1,12 @@
 from getpass import getpass
-from os import makedirs
-from os import path
 import sys
+import os
+
+class InvalidUsername(Exception):
+	def __init__(self, username):
+		self.username = username
+	def __str__(self):
+		return repr(self.username)
 
 def get_user_credentials():
 
@@ -73,10 +78,13 @@ def getusername(reset=False):
 		IOError: An error occurred accessing the username file.
 	"""
 
+	def _is_valid(username):
+		return ('@' and '.' in username)
+
 	_mailSaved = savedusername()
 	_mail = ""
 	
-	if not reset or ('@' and '.' in _mailSaved):
+	if _is_valid(_mailSaved) and not reset:
 		print 'Read\t:', _mailSaved
 		_mail = _mailSaved
 	else:
@@ -85,6 +93,9 @@ def getusername(reset=False):
 		# Auto-completes the username if domain missing 
 		if '.' in _mail and not '@' in _mail:
 			_mail = _mail + '@mail.mcgill.ca'
+
+		if not _is_valid(_mail):
+			raise InvalidUsername(_mail)
 
 	# Stores the email to the user file
 	if _mail != _mailSaved:
@@ -120,13 +131,13 @@ def savedusername(username=""):
 		IOError: An error occurred accessing the username file.
 	"""
 
-	_userPath = path.expanduser("~/.minerva/")
-	_userFile = path.join(_userPath, 'user')
+	_userPath = os.path.expanduser("~/.minerva/")
+	_userFile = os.path.join(_userPath, 'user')
 
-	if not path.exists(_userPath):
-		path.makedirs(_userPath)
+	if not os.path.exists(_userPath):
+		os.makedirs(_userPath)
 
-	if not path.exists(_userFile):
+	if not os.path.exists(_userFile):
 		open(_userFile, 'w').close()
 
 	if username == "":
