@@ -68,7 +68,7 @@ class MinervaReader:
 	def _semesters_from_table(self, table):
 
 		def _is_semester_header(line):
-			sem_header_regex = re.compile('^(Fall|Winter|Summer) ([0-9]{4})$')
+			sem_header_regex = re.compile('^(Readmitted|)(Fall|Winter|Summer) ([0-9]{4})$')
 			return sem_header_regex.match(line[0])
 
 		def _is_standing(line):
@@ -110,7 +110,9 @@ class MinervaReader:
 			#print line
 			if l == 1:
 				if _is_semester_header(line):
-					title = line[0].split(' ')
+					# Gets rid of the Readmitted word before the semester
+					title = re.sub('^Readmitted', '', line[0])
+					title = title.split(' ')
 					sem = structures.minervaSemester(title[0],title[1])
 					curriculum.addSemester(sem)
 					print curriculum.lastSemester()
