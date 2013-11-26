@@ -83,6 +83,11 @@ class MinervaReader:
 		def _is_standing_header(line):
 			return line[0] == 'Advanced Standing& Transfer Credits:'
 
+		def _is_a_grade(text):
+			rule = '^(A-|B+|B|B-|C+|C|D|F'
+			rule += '|HH|IP|JK|KE|K\*|KF|KK|LL|LE|L\*'
+			rule += 'NA|&&|NE|NR|P|Q|R|S|U|W|WF|WL|W--|--)$'
+
 		def _course_missing_avg(line):
 			try:
 				int(line[-1])
@@ -97,6 +102,16 @@ class MinervaReader:
 			except ValueError:
 				return False
 
+		def _course_missing_credits(line):
+			
+			_is_an_int = False
+
+			for field in line[5:]:
+				_is_an_int = field.isdigit()
+				if _is_an_int:
+					return True
+			return False
+
 		rows = iter(table)
 		headers = [col for col in next(rows)]
 		standing_headers = []
@@ -110,7 +125,7 @@ class MinervaReader:
 			#print line
 			if l == 1:
 				if _is_semester_header(line):
-					# Gets rid of the Readmitted word before the semester
+					# Gets rid of the Readmitted word before the semester.
 					title = re.sub('^Readmitted', '', line[0])
 					title = title.split(' ')
 					sem = structures.minervaSemester(title[0],title[1])
@@ -127,6 +142,7 @@ class MinervaReader:
 					#print curriculum.education
 
 				elif _is_description(line):
+					# Puts spaces before capital letters.
 					description = re.sub('(\S[A-Z])', r' \1', line[0])
 					curriculum.description = description
 				else:
