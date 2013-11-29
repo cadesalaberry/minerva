@@ -4,6 +4,7 @@ from urlparse import urlparse
 from urlparse import parse_qs
 from bs4 import BeautifulSoup
 import re
+import json
 
 class MinervaReader:
 
@@ -58,14 +59,14 @@ class MinervaReader:
 	
 		table = _clean_html_table(tbl)
 
-		print self._semesters_from_table(table)
+		print self._curriculum_from_table(table)
 		
 		return True
 
 
 
 
-	def _semesters_from_table(self, table):
+	def _curriculum_from_table(self, table):
 
 		def _is_semester_header(line):
 			sem_header_regex = re.compile('^(Readmitted|)(Fall|Winter|Summer) ([0-9]{4})$')
@@ -178,4 +179,9 @@ class MinervaReader:
 				pass# print l, 'CUM GPA', line
 			elif l == 23:
 				pass# print l, 'Advanced Standing', line			
+		
 		print curriculum
+		for semester in curriculum.semesters:
+			print ' ', semester
+			for course in semester.courses:
+				print '  ', course
