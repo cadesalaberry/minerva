@@ -1,4 +1,10 @@
-class minervaSite:
+import json
+
+class jsonObject(object):
+	def json(self):
+		return json.dumps(self.__dict__, default=lambda o: o.__dict__)
+
+class minervaSite(jsonObject):
 	def __init__(self, _baseURL='https://horizon.mcgill.ca/pban1/'):
 		self.base = _baseURL
 		self.login = _baseURL + 'twbkwbis.P_ValLogin'
@@ -9,7 +15,7 @@ class minervaSite:
 		self.result = _baseURL + 'twbkwbis.P_Logout'
 
 
-class minervaCred:
+class minervaCred(jsonObject):
 	def __init__(self, _mail, _password):
 		self.usermail = _mail
 		self.password = _password
@@ -19,7 +25,7 @@ class minervaCred:
 		return '<Credentials of: %s>' % self.usermail
 
 
-class minervaSemester:
+class minervaSemester(jsonObject):
 	def __init__(self, _semester, _year):
 		self.name = ' '.join((_semester, _year))
 		self.year = _year
@@ -36,7 +42,7 @@ class minervaSemester:
 		self.courses.append(course)
 
 
-class minervaCurriculum:
+class minervaCurriculum(jsonObject):
 	def __init__(self, _education='', _diploma=''):
 		self.education = _education
 		self.semesters = []
