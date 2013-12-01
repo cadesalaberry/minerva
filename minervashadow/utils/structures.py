@@ -25,15 +25,34 @@ class minervaCred(jsonObject):
 		return '<Credentials of: %s>' % self.usermail
 
 
+class minervaCourse(jsonObject):
+	def __init__(self, _subject):
+		self.name = _subject
+		self.grade = None
+		self.title = None
+		self.number = None
+		self.earned = None
+		self.subject = _subject
+		self.credits = None
+		self.remarks = None
+		self.average = None
+
+	def __repr__(self):
+		return "<Course: {0}>".format(self.name)
+
+	def addCourse(self, course):
+		self.courses.append(course)
+
+
 class minervaSemester(jsonObject):
 	def __init__(self, _semester, _year):
-		self.name = ' '.join((_semester, _year))
+		self.name = ' '.join((_year, _semester))
 		self.year = _year
 		self.courses = []
 		self.semester = _semester
-		self.standing = ''
+		self.standing = None
 		self.advanced = []
-		self.description = ''
+		self.description = None
 
 	def __repr__(self):
 		return "<Semester: {0} ({1} courses)>".format(self.name, len(self.courses))

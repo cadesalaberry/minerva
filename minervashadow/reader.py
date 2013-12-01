@@ -1,10 +1,9 @@
 import utils.structures as structures
 from HTMLParser import HTMLParser
-from urlparse import urlparse
-from urlparse import parse_qs
 from bs4 import BeautifulSoup
 import re
 import json
+import urlparse
 
 class MinervaReader:
 
@@ -12,10 +11,10 @@ class MinervaReader:
 		self.s = site
 
 	def welcomemsg(self, html):
-		query = parse_qs(html.geturl())
+		query = urlparse.parse_qs(html.geturl())
 		messg = HTMLParser().unescape(query['msg'][0])
-		messg = messg.replace('<b>', '\n').replace('</b>', '\n')
-		return messg
+		messg = messg.replace('<b>', '').replace('WELCOME ', '')
+		return messg.split('</b>')
 
 	def welcomeerr(self, html):
 		# TODO:Instead we should try reading the error message displayed on the html
@@ -25,15 +24,16 @@ class MinervaReader:
 		
 		def _clean(cell):
 			
-			cell = cell.replace(u'\xa0', u'\n')
-			cell = cell.strip()
-			cell = ' '.join(cell.split())
+			cell = cell.replace(u'\xa0', u'\n') # Removes weird characters
+			cell = cell.replace(u'\xb2', u'') # Removes the pow(2) character
+			#cell = cell.strip().encode('utf8')	# Removes trailing spaces
+			cell = ' '.join(cell.split())		# Removes useless '\n'
 
 			return cell
 
 		def _clean_html_table(tbl):
 
-			# Turns the html table into a list of lists (2D)
+			# Turns the html table into a list of lists (2D list)
 			html_matrix = [col.findAll('td') for col in tbl.findAll('tr')]
 
 			# Gets rid of the html formatting to get only text
@@ -62,8 +62,6 @@ class MinervaReader:
 		print self._curriculum_from_table(table)
 		
 		return True
-
-
 
 
 	def _curriculum_from_table(self, table):
@@ -113,6 +111,24 @@ class MinervaReader:
 					return True
 			return False
 
+		def _course_from_line(line):
+
+			_course = structures.minervaCourse(line[0])
+			
+			if not len(line) is 8:
+				return _course
+
+			_course.number	= line[1]
+			_course.title	= line[2]
+			_course.credits	= line[3]
+			_course.grade	= line[4]
+			_course.remarks	= line[5]
+			_course.earned	= line[6]
+			_course.average = line[7]
+
+			return _course
+
+
 		rows = iter(table)
 		headers = [col for col in next(rows)]
 		standing_headers = []
@@ -123,24 +139,21 @@ class MinervaReader:
 
 		for line in table:
 			l = len(line)
-			#print line
+
 			if l == 1:
 				if _is_semester_header(line):
 					# Gets rid of the Readmitted word before the semester.
-					title = re.sub('^Readmitted', '', line[0])
-					title = title.split(' ')
+					title = re.sub('^Readmitted', '', line[0]).split(' ')
 					sem = structures.minervaSemester(title[0],title[1])
+					
 					curriculum.addSemester(sem)
-					print curriculum.lastSemester()
 
 				elif _is_standing(line):
 					curriculum.lastSemester().standing = line[0]
-					#print curriculum.lastSemester().standing
 
 				elif _is_education(line):
 					education = re.sub('^PREVIOUS EDUCATION ', '', line[0])
 					curriculum.education = education
-					#print curriculum.education
 
 				elif _is_description(line):
 					# Puts spaces before capital letters.
@@ -159,7 +172,8 @@ class MinervaReader:
 					if not standing_headers:
 						standing_headers = line
 				else:
-					print l, 'Unknown', line
+					# Credits transfer and course equivalence
+					#print l, 'Unknown', line
 					pass
 
 			elif l == 6 or l == 7:
@@ -170,8 +184,11 @@ class MinervaReader:
 					line.insert(5, '')
 				#print 'Added a course with missing info (6/8)'
 				#courses = courses[-1].append(line)
-				print len(line), line
-				pass
+				if len(line) is 8:
+					_course = _course_from_line(line)
+					curriculum.lastSemester().addCourse(_course)
+				else:
+					print line
 
 			elif l == 8:
 				pass# print l, 'TERM GPA', line
@@ -185,3 +202,4 @@ class MinervaReader:
 			print ' ', semester
 			for course in semester.courses:
 				print '  ', course
+					
