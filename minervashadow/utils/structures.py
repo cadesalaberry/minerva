@@ -27,7 +27,6 @@ class minervaCred(jsonObject):
 
 class minervaCourse(jsonObject):
 	def __init__(self, _subject):
-		self.name = _subject
 		self.grade = None
 		self.title = None
 		self.number = None
@@ -38,7 +37,7 @@ class minervaCourse(jsonObject):
 		self.average = None
 
 	def __repr__(self):
-		return "<Course: {0}>".format(self.name)
+		return "<Course: {0}>".format(self.subject)
 
 	def addCourse(self, course):
 		self.courses.append(course)
