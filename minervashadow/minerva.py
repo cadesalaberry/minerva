@@ -30,7 +30,7 @@ class MinervaSession:
 	def logout(self):
 		
 		if not self.user.loggedin:
-			print 'Please login first.'
+			print 'You are already logged in.'
 			exit()
 
 		# Logs out.
