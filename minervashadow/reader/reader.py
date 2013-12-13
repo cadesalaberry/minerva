@@ -1,18 +1,15 @@
-from ..utils import structures
 from bs4 import BeautifulSoup
-import re
-import json
 import login
 import transcript
 
 class MinervaReader:
 
 	def __init__(self, site):
-		self.s = site
+		self.site = site
 
 	def login(self, html):
 
-		if html.geturl() == self.s.login:
+		if html.geturl() == self.site.login:
 			print login.welcomeerr(html)
 		else:
 			print login.welcomemsg(html)
