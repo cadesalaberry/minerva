@@ -29,8 +29,6 @@ class MinervaReader:
 
 		curriculum = transcript.get_curriculum(table)
 	
-		print curriculum
-		
-		return True
+		return curriculum
 
 					
