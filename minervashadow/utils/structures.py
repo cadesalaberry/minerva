@@ -39,6 +39,11 @@ class minervaCourse(jsonObject):
 	def __repr__(self):
 		return "<Course: {0}>".format(self.subject)
 
+	def __str__(self):
+		course = self
+		string = '\n    ' + repr(course)
+		return string
+
 	def addCourse(self, course):
 		self.courses.append(course)
 
@@ -55,6 +60,15 @@ class minervaSemester(jsonObject):
 
 	def __repr__(self):
 		return "<Semester: {0} ({1} courses)>".format(self.name, len(self.courses))
+
+	def __str__(self):
+		semester = self
+		string = '\n  ' + repr(semester)
+
+		for course in semester.courses:
+			string += str(course)
+
+		return string
 
 	def addCourse(self, course):
 		self.courses.append(course)
@@ -74,9 +88,7 @@ class minervaCurriculum(jsonObject):
 		string = repr(curriculum)
 
 		for semester in curriculum.semesters:
-			string += '\n  ' + repr(semester)
-			for course in semester.courses:
-				string += '\n    ' + repr(course)
+			string += str(semester)
 
 		return string
 
