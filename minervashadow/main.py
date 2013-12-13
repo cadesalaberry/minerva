@@ -22,9 +22,10 @@ Options:
 	-v, --version  Print the current version.
 """
 
-from minerva import MinervaSession
+from minervashadow import get_version
 from docopt import docopt
 import ui.cli as cli
+import minerva
 
 def start():
 
@@ -36,7 +37,7 @@ def start():
 
 def handled_exit():
 	
-	args = docopt(__doc__, version='0.0.2')
+	args = docopt(__doc__, version=get_version())
 	validRequest = True
 
 	if args['register']:
@@ -51,7 +52,7 @@ def handled_exit():
 
 		credentials = cli.get_user_credentials()
 
-		session = MinervaSession(credentials)
+		session = minerva.MinervaSession(credentials)
 
 		if not args['login']:
 			session.login()

@@ -76,16 +76,14 @@ def _curriculum_from_clean_table(table):
 
 		_course = structures.minervaCourse(line[0])
 		
-		if not len(line) is 8:
-			return _course
-
-		_course.number	= line[1]
-		_course.title	= line[2]
-		_course.credits	= line[3]
-		_course.grade	= line[4]
-		_course.remarks	= line[5]
-		_course.earned	= line[6]
-		_course.average = line[7]
+		if len(line) is 8:
+			_course.number	= line[1]
+			_course.title	= line[2]
+			_course.credits	= line[3]
+			_course.grade	= line[4]
+			_course.remarks	= line[5]
+			_course.earned	= line[6]
+			_course.average = line[7]
 
 		return _course
 
