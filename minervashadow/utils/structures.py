@@ -5,14 +5,14 @@ class jsonObject(object):
 		return json.dumps(self.__dict__, default=lambda o: o.__dict__)
 
 class minervaSite(jsonObject):
-	def __init__(self, _baseURL='https://horizon.mcgill.ca/pban1/'):
-		self.base = _baseURL
-		self.login = _baseURL + 'twbkwbis.P_ValLogin'
-		self.logout = _baseURL + 'twbkwbis.P_Logout'
-		self.search = _baseURL + 'bwckgens.p_proc_term_date'
-		self.transcript = _baseURL + 'bzsktran.P_Display_Form?user_type=S&tran_type=V'
-		self.quick_search = _baseURL + 'bwskfreg.P_AltPin'
-		self.result = _baseURL + 'twbkwbis.P_Logout'
+	def __init__(self, baseURL='https://horizon.mcgill.ca/pban1/'):
+		self.base = baseURL
+		self.login = baseURL + 'twbkwbis.P_ValLogin'
+		self.logout = baseURL + 'twbkwbis.P_Logout'
+		self.search = baseURL + 'bwckgens.p_proc_term_date'
+		self.transcript = baseURL + 'bzsktran.P_Display_Form?user_type=S&tran_type=V'
+		self.quick_search = baseURL + 'bwskfreg.P_AltPin'
+		self.result = baseURL + 'twbkwbis.P_Logout'
 
 
 class minervaCred(jsonObject):
@@ -20,6 +20,7 @@ class minervaCred(jsonObject):
 		self.usermail = _mail
 		self.password = _password
 		self.loggedin = False
+		self.cookie = None
 
 	def __repr__(self):
 		return '<Credentials of: %s>' % self.usermail
