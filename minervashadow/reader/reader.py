@@ -10,9 +10,9 @@ class MinervaReader:
 	def login(self, html):
 
 		if html.geturl() == self.site.login:
-			print login.welcomeerr(html)
+			return False, login.welcomeerr(html)
 		else:
-			print login.welcomemsg(html)
+			return True, login.welcomemsg(html)
 
 	def transcript(self, html, semester='all'):
 		
@@ -28,7 +28,7 @@ class MinervaReader:
 		table = [col.findAll('td') for col in tbl.findAll('tr')]
 
 		curriculum = transcript.get_curriculum(table)
-	
+		
 		return curriculum
 
 					

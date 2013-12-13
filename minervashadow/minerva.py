@@ -17,12 +17,11 @@ class MinervaSession:
 		# Logs in, This page can confirm a succesful login.
 		loginResponse = self.writer.login(self.user)
 
-		print self.reader.login(loginResponse)
+		loggedin, msg = self.reader.login(loginResponse)
 
-		if loginResponse.geturl() != self.site.login:
-			self.user.loggedin = True
-		else:
-			self.user.loggedin = False
+		print msg[0]
+
+		self.user.loggedin = loggedin
 
 		return loginResponse.read()
 
@@ -53,7 +52,7 @@ class MinervaSession:
 		
 		curriculum = self.reader.transcript(transcriptPage)
 
-		print curriculum
+		print str(curriculum)
 
 		return curriculum
 

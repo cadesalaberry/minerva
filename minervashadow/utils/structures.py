@@ -69,6 +69,17 @@ class minervaCurriculum(jsonObject):
 	def __repr__(self):
 		return "<Curriculum: {0} ({1} semesters)>".format(self.diploma, len(self.semesters))
 
+	def __str__(self):
+		curriculum = self
+		string = repr(curriculum)
+
+		for semester in curriculum.semesters:
+			string += '\n  ' + repr(semester)
+			for course in semester.courses:
+				string += '\n    ' + repr(course)
+
+		return string
+
 	def addSemester(self, semester):
 		self.semesters.append(semester)
 

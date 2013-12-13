@@ -25,7 +25,7 @@ def _clean_html_table(tbl):
 	return filtered
 
 
-def _curriculum_from_table(table):
+def _curriculum_from_clean_table(table):
 
 	def _is_semester_header(line):
 		sem_header_regex = re.compile('^(Readmitted|)(Fall|Winter|Summer) ([0-9]{4})$')
@@ -94,7 +94,7 @@ def _curriculum_from_table(table):
 	headers = [col for col in next(rows)]
 	standing_headers = []
 
-	print headers
+	#print headers
 
 	curriculum = structures.minervaCurriculum()
 
@@ -156,16 +156,13 @@ def _curriculum_from_table(table):
 		elif l == 9:
 			pass# print l, 'CUM GPA', line
 		elif l == 23:
-			pass# print l, 'Advanced Standing', line			
-	
-	print curriculum
-	for semester in curriculum.semesters:
-		print ' ', semester
-		for course in semester.courses:
-			print '  ', course
+			pass# print l, 'Advanced Standing', line
+
+	return curriculum
+
 
 def get_curriculum(table):
 
 	table = _clean_html_table(table)
 
-	return _curriculum_from_table(table)
+	return _curriculum_from_clean_table(table)
