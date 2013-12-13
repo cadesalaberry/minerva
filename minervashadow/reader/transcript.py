@@ -47,29 +47,28 @@ def _curriculum_from_clean_table(table):
 		rule = '^(A-|B+|B|B-|C+|C|D|F'
 		rule += '|HH|IP|JK|KE|K\*|KF|KK|LL|LE|L\*'
 		rule += 'NA|&&|NE|NR|P|Q|R|S|U|W|WF|WL|W--|--)$'
+		grade_regex = re.compile(rule)
+		return grade_regex.match(text)
 
 	def _course_missing_avg(line):
-		try:
-			int(line[-1])
-			return True
-		except ValueError:
+		if len(line) < 8:
+			return not _is_a_grade(line[-1])
+		else:
 			return False
 
 	def _course_missing_remarks(line):
-		try:
-			int(line[5])
-			return True
-		except ValueError:
+		if 5 < len(line) and len(line) < 8:
+			if _is_a_grade(line[-1]) and line[-2].isdigit():
+				return True
+		else:
 			return False
 
 	def _course_missing_credits(line):
-		
-		_is_an_int = False
-
-		for field in line[5:]:
-			_is_an_int = field.isdigit()
-			if _is_an_int:
-				return True
+		if 5 < len(line) and len(line) < 8:
+			for field in line[5:]:
+				if field.isdigit():
+					return False
+			return True
 		return False
 
 	def _course_from_line(line):
@@ -136,11 +135,15 @@ def _curriculum_from_clean_table(table):
 				pass
 
 		elif l == 6 or l == 7:
+			if _course_missing_credits(line):
+				line.insert(5, '0')
+				
 			if _course_missing_avg(line):
-				line.append('')
+				line.append('--')
 
 			if _course_missing_remarks(line):
-				line.insert(5, '')
+				line.insert(-2, '')
+
 			#print 'Added a course with missing info (6/8)'
 			#courses = courses[-1].append(line)
 			if len(line) is 8:
