@@ -25,3 +25,5 @@ def get_version(version=None):
 		pass
 
 	return str(main_version + sub_version)
+
+__version__ = get_version()

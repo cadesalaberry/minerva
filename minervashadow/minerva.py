@@ -53,7 +53,7 @@ class MinervaSession:
 		curriculum = self.reader.transcript(transcriptPage)
 
 		print str(curriculum)
-
+		print curriculum.json()
 		return curriculum
 
 	def list(self):
