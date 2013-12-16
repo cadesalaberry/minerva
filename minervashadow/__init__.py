@@ -7,7 +7,6 @@ def get_version(version=None):
 	
 	main_version, sub_version = '', ''
 
-
 	if version is None:
 		version = VERSION
 	else:
