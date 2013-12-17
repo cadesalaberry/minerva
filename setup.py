@@ -1,4 +1,4 @@
-from minervashadow import __version__
+import minervashadow
 try:
 	from setuptools import setup 
 except:
@@ -10,7 +10,7 @@ dependencies=['docopt','mechanize','beautifulsoup4']
 setup(
 
 	name='minervashadow',
-	version=__version__,
+	version=minervashadow.get__version(),
 	description='A python interface to the aging minerva website.',
 	long_description=open('README.md').read(),
 	url='https://github.com/cadesalaberry/minervashadow',
