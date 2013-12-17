@@ -1,4 +1,6 @@
-from ..utils import structures
+from minervashadow.utils import structures
+import identify
+import course
 import re
 
 def _clean_cell(cell):
@@ -27,71 +29,11 @@ def _clean_html_table(tbl):
 
 def _curriculum_from_clean_table(table):
 
-	def _is_semester_header(line):
-		sem_header_regex = re.compile('^(Readmitted|)(Fall|Winter|Summer) ([0-9]{4})$')
-		return sem_header_regex.match(line[0])
-
-	def _is_standing(line):
-		return line[0].startswith('Standing: ')
-
-	def _is_education(line):
-		return line[0].startswith('PREVIOUS EDUCATION ')
-
-	def _is_description(line):
-		return line[0].startswith('Bachelor of ')
-
-	def _is_standing_header(line):
-		return line[0] == 'Advanced Standing& Transfer Credits:'
-
-	def _is_a_grade(text):
-		rule = '^(A-|B+|B|B-|C+|C|D|F'
-		rule += '|HH|IP|JK|KE|K\*|KF|KK|LL|LE|L\*'
-		rule += 'NA|&&|NE|NR|P|Q|R|S|U|W|WF|WL|W--|--)$'
-		grade_regex = re.compile(rule)
-		return grade_regex.match(text)
-
-	def _course_missing_avg(line):
-		if len(line) < 8:
-			return not _is_a_grade(line[-1])
-		else:
-			return False
-
-	def _course_missing_remarks(line):
-		if 5 < len(line) and len(line) < 8:
-			if _is_a_grade(line[-1]) and line[-2].isdigit():
-				return True
-		else:
-			return False
-
-	def _course_missing_credits(line):
-		if 5 < len(line) and len(line) < 8:
-			for field in line[5:]:
-				if field.isdigit():
-					return False
-			return True
-		return False
-
-	def _course_from_line(line):
-
-		_course = structures.minervaCourse(line[0])
-		
-		if len(line) is 8:
-			_course.number	= line[1]
-			_course.title	= line[2]
-			_course.credits	= line[3]
-			_course.grade	= line[4]
-			_course.remarks	= line[5]
-			_course.earned	= line[6]
-			_course.average = line[7]
-
-		return _course
-
-
 	rows = iter(table)
 	headers = [col for col in next(rows)]
 	standing_headers = []
 
-	#print headers
+	print headers
 
 	curriculum = structures.minervaCurriculum()
 
@@ -99,21 +41,21 @@ def _curriculum_from_clean_table(table):
 		l = len(line)
 
 		if l == 1:
-			if _is_semester_header(line):
+			if identify._is_semester_header(line):
 				# Gets rid of the Readmitted word before the semester.
 				title = re.sub('^Readmitted', '', line[0]).split(' ')
 				sem = structures.minervaSemester(title[0],title[1])
 				
 				curriculum.addSemester(sem)
 
-			elif _is_standing(line):
+			elif identify._is_standing(line):
 				curriculum.lastSemester().standing = line[0]
 
-			elif _is_education(line):
+			elif identify._is_education(line):
 				education = re.sub('^PREVIOUS EDUCATION ', '', line[0])
 				curriculum.education = education
 
-			elif _is_description(line):
+			elif identify._is_description(line):
 				# Puts spaces before capital letters.
 				description = re.sub('(\S[A-Z])', r' \1', line[0])
 				curriculum.description = description
@@ -126,7 +68,7 @@ def _curriculum_from_clean_table(table):
 			pass
 
 		elif l == 5:
-			if _is_standing_header(line):
+			if identify._is_standing_header(line):
 				if not standing_headers:
 					standing_headers = line
 			else:
@@ -135,22 +77,8 @@ def _curriculum_from_clean_table(table):
 				pass
 
 		elif l == 6 or l == 7:
-			if _course_missing_credits(line):
-				line.insert(5, '0')
-				
-			if _course_missing_avg(line):
-				line.append('--')
-
-			if _course_missing_remarks(line):
-				line.insert(-2, '')
-
-			#print 'Added a course with missing info (6/8)'
-			#courses = courses[-1].append(line)
-			if len(line) is 8:
-				_course = _course_from_line(line)
-				curriculum.lastSemester().addCourse(_course)
-			else:
-				print line
+			_course = course.from_line(line)
+			curriculum.lastSemester().addCourse(_course)
 
 		elif l == 8:
 			pass# print l, 'TERM GPA', line
