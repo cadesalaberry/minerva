@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META HTTP-EQUIV="Pragma" NAME="Cache-Control" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" NAME="Cache-Control" CONTENT="no-cache">
+<LINK REL="stylesheet" HREF="/css/web_defaultapp.css" TYPE="text/css">
+<LINK REL="stylesheet" HREF="/css/web_defaultprint.css" TYPE="text/css" media="print">
+<TITLE>uPrint - Password Waiver for McGill ID cards</TITLE>
+<META HTTP-EQUIV="Content-Script-Type" NAME="Default_Script_Language" CONTENT="text/javascript">
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!-- Hide JavaScript from older browsers 
+var submitcount=0;
+function checkSubmit() {
+if (submitcount == 0)
+   {
+   submitcount++;
+   return true;
+   }
+else
+   {
+alert("Your changes have already been submitted.");
+   return false;
+   }
+}
+//  End script hiding -->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!-- Hide JavaScript from older browsers 
+//  Function to open a window
+function windowOpen(window_url) {
+   helpWin = window.open(window_url,'','toolbar=yes,status=no,scrollbars=yes,menubar=yes,resizable=yes,directories=no,location=no,width=350,height=400');
+   if (document.images) { 
+       if (helpWin) helpWin.focus()
+   }
+}
+//  End script hiding -->
+</SCRIPT>
+</HEAD>
+<BODY>
+<DIV class="headerwrapperdiv">
+<DIV class="pageheaderdiv1">
+<A HREF="#main_content" onMouseover="window.status='Go to Main Content'; return true" onMouseout="window.status=''; return true" OnFocus="window.status='Go to Main Content'; return true" onBlur="window.status=''; return true" class="skiplinks">Go to Main Content</A>
+<H1>Minerva</H1></DIV><DIV class="headerlinksdiv">
+<SPAN class="pageheaderlinks2">
+<MAP NAME="Module_Navigation_Links_H" title="Module Navigation Links">
+<p>
+<A HREF="#skip_Module_Navigation_Links_H" onMouseover="window.status='Skip Module Navigation Links'; return true" onMouseout="window.status=''; return true" onFocus="window.status='Skip Module Navigation Links'; return true" onBlur="window.status=''; return true"  class="skiplinks">Skip Module Navigation Links</A>
+<TABLE  CLASS="plaintable" SUMMARY="This is main table for displaying Tab Items."
+                          WIDTH="100%" cellSpacing=0 cellPadding=0 border=0>
+<TR>
+<TD CLASS="pldefault">
+<TABLE  CLASS="plaintable" SUMMARY="This table displays Tab Items."
+                 cellSpacing=0 cellPadding=0 border=0>
+<TR>
+<td class=taboff  height=22>
+<A HREF="/pban1/twbkwbis.P_GenMenu?name=bmenu.P_MainMnu" onMouseover="window.status='Main menu'; return true" onMouseout="window.status=''; return true" onFocus="window.status='Main menu'; return true" onBlur="window.status=''; return true" >MAIN MENU</A>
+</TD>
+<TD class=bgtaboff height=22 vAlign=top align=right>
+<IMG SRC="/wtlgifs/web_tab_corner_right.gif" ALT="Tab Corner Right" CLASS="headerImg" TITLE="Tab Corner Right"  NAME="web_tab_corner_right" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=20 WIDTH=8>
+</TD>
+<td class=taboff  height=22>
+<A HREF="/pban1/twbkwbis.P_GenMenu?name=bmenu.P_PersonalMnu" onMouseover="window.status='Personal Menu'; return true" onMouseout="window.status=''; return true" onFocus="window.status='Personal Menu'; return true" onBlur="window.status=''; return true" >Personal</A>
+</TD>
+<TD class=bgtaboff height=22 vAlign=top align=right>
+<IMG SRC="/wtlgifs/web_tab_corner_right.gif" ALT="Tab Corner Right" CLASS="headerImg" TITLE="Tab Corner Right"  NAME="web_tab_corner_right" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=20 WIDTH=8>
+</TD>
+<td class=taboff  height=22>
+<A HREF="/pban1/twbkwbis.P_GenMenu?name=bmenu.P_StuMainMnu" onMouseover="window.status='Student Menu'; return true" onMouseout="window.status=''; return true" onFocus="window.status='Student Menu'; return true" onBlur="window.status=''; return true" >Student</A>
+</TD>
+<TD class=bgtaboff height=22 vAlign=top align=right>
+<IMG SRC="/wtlgifs/web_tab_corner_right.gif" ALT="Tab Corner Right" CLASS="headerImg" TITLE="Tab Corner Right"  NAME="web_tab_corner_right" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=20 WIDTH=8>
+</TD>
+<td class=taboff  height=22>
+<A HREF="/pban1/twbkwbis.P_GenMenu?name=bmenu.P_ApplMnu" onMouseover="window.status='Applicant Menu'; return true" onMouseout="window.status=''; return true" onFocus="window.status='Applicant Menu'; return true" onBlur="window.status=''; return true" >Applicant</A>
+</TD>
+<TD class=bgtaboff height=22 vAlign=top align=right>
+<IMG SRC="/wtlgifs/web_tab_corner_right.gif" ALT="Tab Corner Right" CLASS="headerImg" TITLE="Tab Corner Right"  NAME="web_tab_corner_right" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=20 WIDTH=8>
+</TD>
+<td class=taboff  height=22>
+<A HREF="/pban1/twbkwbis.P_GenMenu?name=bmenu.P_BsacMnu" onMouseover="window.status='Financial Aid/Awards'; return true" onMouseout="window.status=''; return true" onFocus="window.status='Financial Aid/Awards'; return true" onBlur="window.status=''; return true" >Financial Aid/Awards</A>
+</TD>
+<TD class=bgtaboff height=22 vAlign=top align=right>
+<IMG SRC="/wtlgifs/web_tab_corner_right.gif" ALT="Tab Corner Right" CLASS="headerImg" TITLE="Tab Corner Right"  NAME="web_tab_corner_right" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=20 WIDTH=8>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD class=bgtabon width="100%" colSpan=2><IMG SRC="/wtlgifs/web_transparent.gif" ALT="Transparent Image" CLASS="headerImg" TITLE="Transparent Image"  NAME="web_transparent" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=3 WIDTH=10></TD></TR></TABLE>
+</MAP>
+</SPAN>
+<a name="skip_Module_Navigation_Links_H"></a>
+</DIV>
+<TABLE  CLASS="plaintable" SUMMARY="This table displays Menu Items and Banner Search textbox."
+         WIDTH="100%">
+<TR>
+<TD CLASS="pldefault">
+<DIV class="headerlinksdiv2">
+<FORM ACTION="/pban1/twbksrch.P_ShowResults" METHOD="POST">
+Search
+<SPAN class=fieldlabeltextinvisible><LABEL for=keyword_in_id><SPAN class=fieldlabeltext>Search</SPAN></LABEL></SPAN>
+<INPUT TYPE="text" NAME="KEYWRD_IN" SIZE="20" MAXLENGTH="65" ID="keyword_in_id">
+<INPUT TYPE="submit" VALUE="Go">
+</FORM>
+</div>
+</TD>
+<TD CLASS="pldefault"><p class="rightaligntext">
+<SPAN class="pageheaderlinks">
+<A HREF="/pban1/twbkwbis.P_GenMenu?name=bmenu.P_StuCPPMnu"  class="submenulinktext2" id="ssbbackurl">MENU</A>
+|
+<A HREF="/pban1/twbksite.P_DispSiteMap?menu_name_in=bmenu.P_MainMnu&amp;depth_in=2&amp;columns_in=3" accesskey="2" class="submenulinktext2">SITE MAP</A>
+|
+<A HREF="http://www.is.mcgill.ca/whelp/gen_help/default_help.htm" accesskey="H" onClick="popup = window.open('http://www.is.mcgill.ca/whelp/gen_help/default_help.htm', 'PopupPage','height=450,width=500,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">HELP</A>
+|
+<A HREF="twbkwbis.P_Logout" accesskey="3" class="submenulinktext2">EXIT</A>
+</span>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+<DIV class="pagetitlediv">
+<TABLE  CLASS="plaintable" SUMMARY="This table displays title and static header displays."
+   WIDTH="100%">
+<TR>
+<TD CLASS="pldefault">
+<H2>uPrint - Password Waiver for McGill ID cards</H2>
+</TD>
+<TD CLASS="pldefault">
+&nbsp;
+</TD>
+<TD CLASS="pldefault"><p class="rightaligntext">
+<DIV class="staticheaders">
+</div>
+</TD>
+</TR>
+<TR>
+<TD class="bg3" width="100%" colSpan=3><IMG SRC="/wtlgifs/web_transparent.gif" ALT="Transparent Image" CLASS="headerImg" TITLE="Transparent Image"  NAME="web_transparent" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=3 WIDTH=10></TD>
+</TR>
+</TABLE>
+<a name="main_content"></a>
+</DIV>
+<DIV class="pagebodydiv">
+<!--  ** END OF twbkwbis.P_OpenDoc **  -->
+<DIV class="infotextdiv"><TABLE  CLASS="infotexttable" SUMMARY="This layout table contains information that may be helpful in understanding the content and functionality of this page.  It could be a brief set of instructions, a description of error messages, or other special information."><TR><TD CLASS="indefault"><IMG SRC="/wtlgifs/web_info_cascade.png" ALT="Information" CLASS="headerImg" TITLE="Information"  NAME="web_info" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=12 WIDTH=14></TD><TD CLASS="indefault"><SPAN class=infotext> 
+<p>This form lets you choose whether or not you wish to be prompted to enter your McGill password every time you swipe your ID Card at a Xerox uPrint device. By default, McGill faculty and staff members are not prompted for their password, while students and other members of the McGill community are. For added security, it is recommended that you do enable the password prompt by selecting <strong>PSWD Not Waived</strong>.</p> 
+<p>If you have more than 1 McGill ID card listed, it is because you have multiple statuses at the university, e.g. you are a student and a staff member.</p>
+<p>Even if you decide to disable the password prompt, you still have to enter it if you log in by manually entering your McGill Username or Short Username. Return to this form at any time to cancel the waiver.</p><p>Any change you make here will only take effect after the next data update period. These occur daily at 10am, 1pm, 4pm and 6pm.</p>
+
+<p>For more information on uPrint, please see:</p> <ul>
+<li><a href="http://kb.mcgill.ca/it/uprint" target="_blank">uPrint - Campus Printing for Students</a></li><li><a href="http://kb.mcgill.ca/it/uprint-staff" target="_blank">uPrint - Campus Printing for Faculty and Staff</a></li>
+</ul>
+<p><strong>Note:</strong> This form has no impact on any other services / login methods apart from using your McGill ID card to login to a uPrint device.</p></SPAN></TD></TR></TABLE><P></DIV>
+<FORM ACTION="bzgkmdpw.P_Display_Form" METHOD="POST" NAME="pswd_form">
+<TABLE  CLASS="dataentrytable" SUMMARY="This table shows ID cards for this user." cellpadding="2" cellspacing="0" width="700">
+<TR>
+<TD CLASS="deheader" scope="col" ><p class="leftaligntext">Card Type</TD>
+<TD CLASS="deheader" scope="col" ><p class="centeraligntext">Bar Code</TD>
+<TD CLASS="deheader" scope="col" ><p class="centeraligntext">PSWD Not Waived</TD>
+<TD CLASS="deheader" scope="col" ><p class="centeraligntext">PSWD Waived</TD>
+</TR>
+<TR>
+<INPUT TYPE="hidden" NAME="pers_type_tab" VALUE="5">
+<TD CLASS="dedefault"><p class="leftaligntext"><SPAN class=infotext> Student</SPAN></TD>
+<TD CLASS="dedefault"><p class="centeraligntext">52260406969</TD>
+<TD CLASS="dedefault"><p class="centeraligntext"><INPUT TYPE="radio" NAME="pswd_waiver_ind5" VALUE="N"></TD>
+<TD CLASS="dedefault"><p class="centeraligntext"><INPUT TYPE="radio" NAME="pswd_waiver_ind5" VALUE="Y" CHECKED></TD>
+</TR>
+</TABLE>
+<BR>
+<BR>
+<BR>
+<BR>
+<fieldset >
+<legend >Acknowledgment and Authorization</legend>
+<DIV class="infotextdiv"><TABLE  CLASS="infotexttable" SUMMARY="This layout table contains information that may be helpful in understanding the content and functionality of this page.  It could be a brief set of instructions, a description of error messages, or other special information."><TR><TD CLASS="indefault"><IMG SRC="/wtlgifs/web_info_cascade.png" ALT="Information" CLASS="headerImg" TITLE="Information"  NAME="web_info" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=12 WIDTH=14></TD><TD CLASS="indefault"><SPAN class=infotext> <p><strong>Should you choose to waive the password prompt after swiping your McGill ID card at a uPrint device, please keep in mind that:</p>
+
+<ul>
+<li>If your card is stolen or used by another individual, you are responsible for any charges made; they will not be refunded.</li>
+<li>You should never lend anyone your McGill ID card. Once logged in with your ID card or credentials, any scans sent from a Xerox uPrint device will appear to have been sent by you.</li></ul>
+<font color="#ff0000">
+<p>Note: If your McGill ID card is stolen or lost, contact Security immediately at 398-3000 have your card deactivated.</strong></p></font></SPAN></TD></TR></TABLE><P></DIV>
+<TABLE  CLASS="dataentrytable" >
+<TR>
+<TD CLASS="dedefault"><INPUT TYPE="submit" NAME="mode_in" VALUE="Submit" onClick="javascript:if (confirm('By clicking OK, I acknowledge that I have chosen whether or not to waive one or more ID Card(s) password(s).') ) {return true;} else {return false;} "></TD>
+</TR>
+</TABLE>
+</fieldset>
+</FORM>
+
+<!--  ** START OF twbkwbis.P_CloseDoc **  -->
+<TABLE  CLASS="plaintable" SUMMARY="This is table displays line separator at end of the page."
+                                             WIDTH="100%" cellSpacing=0 cellPadding=0 border=0><TR><TD class=bgtabon width="100%" colSpan=2><IMG SRC="/wtlgifs/web_transparent.gif" ALT="Transparent Image" CLASS="headerImg" TITLE="Transparent Image"  NAME="web_transparent" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=3 WIDTH=10></TD></TR></TABLE>
+<A HREF="#top" onMouseover="window.status='Skip to top of page'; return true" onMouseout="window.status=''; return true" OnFocus="window.status='Skip to top of page'; return true" onBlur="window.status=''; return true" class="skiplinks">Skip to top of page</A>
+<DIV class="pagefooterdiv">
+<SPAN class="releasetext">Release: 1.5<BR>Form Name: GWAMDPW</SPAN>
+</DIV>
+<DIV class="poweredbydiv">
+</DIV>
+<DIV class="div1"></DIV>
+<DIV class="div2"></DIV>
+<DIV class="div3"></DIV>
+<DIV class="div4"></DIV>
+<DIV class="div5"></DIV>
+<DIV class="div6"></DIV>
+</DIV>
+</BODY>
+</HTML>
