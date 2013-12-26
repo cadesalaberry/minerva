@@ -49,7 +49,7 @@ def _curriculum_from_clean_table(table):
 				curriculum.addSemester(sem)
 
 			elif identify._is_standing(line):
-				curriculum.lastSemester().standing = line[0]
+				curriculum.lastSemester().standing = re.sub('^Standing: ', '', line[0])
 
 			elif identify._is_education(line):
 				education = re.sub('^PREVIOUS EDUCATION ', '', line[0])
@@ -57,7 +57,7 @@ def _curriculum_from_clean_table(table):
 
 			elif identify._is_description(line):
 				# Puts spaces before capital letters.
-				description = re.sub('(\S[A-Z])', r' \1', line[0])
+				description = re.sub('(\B[A-Z])', r' \1', line[0])
 				curriculum.description = description
 			else:
 				#print l, 'Semester Name++', line

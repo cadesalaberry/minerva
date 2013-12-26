@@ -2,7 +2,8 @@ import json
 
 class jsonObject(object):
 	def json(self):
-		return json.dumps(self.__dict__, default=lambda o: o.__dict__)
+		return json.dumps(self.__dict__, default=lambda o: o.__dict__,
+			sort_keys=True, indent=4, separators=(',', ': '))
 
 
 class minervaSite(jsonObject):
