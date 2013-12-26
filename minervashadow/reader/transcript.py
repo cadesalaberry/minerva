@@ -6,7 +6,7 @@ import re
 def _clean_cell(cell):
 		
 	cell = cell.replace(u'\xa0', u'\n') # Removes weird characters
-	cell = cell.replace(u'\xb2', u'') # Removes the pow(2) character
+	cell = cell.replace(u'\xb2', u'')   # Removes the pow(2) character
 	#cell = cell.strip().encode('utf8')	# Removes trailing spaces
 	cell = ' '.join(cell.split())		# Removes useless '\n'
 
