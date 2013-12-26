@@ -4,6 +4,7 @@ class jsonObject(object):
 	def json(self):
 		return json.dumps(self.__dict__, default=lambda o: o.__dict__)
 
+
 class minervaSite(jsonObject):
 	def __init__(self, baseURL='https://horizon.mcgill.ca/pban1/'):
 		self.base = baseURL
@@ -38,7 +39,7 @@ class minervaCourse(jsonObject):
 		self.average = None
 
 	def __repr__(self):
-		return "<Course: {0}>".format(self.subject)
+		return "<Course: {0} ({1}cr) {2}>".format(self.subject, self.credits, self.grade)
 
 	def __str__(self):
 		_course = self
@@ -101,6 +102,7 @@ class minervaCurriculum(jsonObject):
 			sem = minervaSemester('Empty','Semester')
 			self.addSemester(sem)
 		return self.semesters[-1]
+
 
 def current_semester():
 
