@@ -32,7 +32,7 @@ def interruptable(fn):
 	"""Exits the program if Ctrl+C is pressed"""
 	def wrapper(*args, **kwargs):
 		try:
-			fn(*args, **kwargs)
+			return fn(*args, **kwargs)
 		except KeyboardInterrupt:
 			print '\n\nExiting...\nHope to see you soon!'
 			exit()
@@ -49,7 +49,7 @@ def start():
 
 	session = minerva.MinervaSession(credentials)
 
-	session.login()
+	print session.login()
 	
 	if not args['login']:
 		session.deal_with_request(args)

@@ -8,7 +8,7 @@ import urllib2
 def internet_needed(fn):
 	def wrapper(*args, **kwargs):
 		try:
-			fn(*args, **kwargs)
+			return fn(*args, **kwargs)
 		except urllib2.URLError as err:
 			raise exceptions.NoInternetConnection
 	return wrapper
@@ -18,7 +18,7 @@ def login_required(fn):
 	def wrapper(self, *args, **kwargs):
 		if not self.user.loggedin:
 			raise exceptions.AuthenticationRequired
-		fn(self, *args, **kwargs)
+		return fn(self, *args, **kwargs)
 	return wrapper
 
 
