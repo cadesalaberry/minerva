@@ -42,9 +42,7 @@ class MinervaSession:
 
 		self.user.loggedin = loggedin
 
-		print msg[0]
-		
-		return msg
+		return msg[0]
 
 
 	@internet_needed
@@ -78,7 +76,6 @@ class MinervaSession:
 		
 		curriculum = self.reader.transcript(transcriptPage)
 
-		print curriculum
 		return curriculum
 
 
@@ -106,6 +103,6 @@ class MinervaSession:
 				response = self.transcript()
 
 			else:
-				print 'Not implemented yet.'
+				response = 'Not implemented yet.'
 
 		return response

@@ -43,7 +43,6 @@ def interruptable(fn):
 def start():
 
 	args = docopt(__doc__, version=get_version())
-	validRequest = True
 
 	credentials = cli.get_user_credentials()
 
@@ -52,6 +51,6 @@ def start():
 	print session.login()
 	
 	if not args['login']:
-		session.deal_with_request(args)
+		print session.deal_with_request(args)
 
 	session.logout()
