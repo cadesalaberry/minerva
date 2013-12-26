@@ -10,7 +10,7 @@ dependencies=['docopt','mechanize','beautifulsoup4']
 setup(
 
 	name='minervashadow',
-	version=minervashadow.get__version(),
+	version=minervashadow.get_version(),
 	description='A python interface to the aging minerva website.',
 	long_description=open('README.md').read(),
 	url='https://github.com/cadesalaberry/minervashadow',
