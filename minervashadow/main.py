@@ -49,6 +49,8 @@ def start():
 
 	session = minerva.MinervaSession(credentials)
 
+	session.login()
+	
 	if not args['login']:
 		session.deal_with_request(args)
 

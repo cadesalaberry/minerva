@@ -39,7 +39,7 @@ class MinervaSession:
 
 		loggedin, msg = self.reader.login(loginResponse)
 
-		print msg[0], 'sssssssssssssssssssssss'
+		print msg[0]
 
 		self.user.loggedin = loggedin
 
