@@ -31,6 +31,7 @@ class MinervaSession:
 		self.writer = MinervaWriter(self.site)
 		self.reader = reader.MinervaReader(self.site)
 
+
 	@internet_needed
 	def login(self) :
 
@@ -39,11 +40,12 @@ class MinervaSession:
 
 		loggedin, msg = self.reader.login(loginResponse)
 
-		print msg[0]
-
 		self.user.loggedin = loggedin
 
-		return loginResponse.read()
+		print msg[0]
+		
+		return msg
+
 
 	@internet_needed
 	def logout(self):
@@ -56,6 +58,7 @@ class MinervaSession:
 
 		return logoutPage.read()
 
+
 	@internet_needed
 	@login_required
 	def drop(self, crn):
@@ -66,6 +69,7 @@ class MinervaSession:
 		
 		return dropPage.read()
 
+
 	@internet_needed
 	@login_required
 	def transcript(self):
@@ -74,9 +78,9 @@ class MinervaSession:
 		
 		curriculum = self.reader.transcript(transcriptPage)
 
-		print str(curriculum)
-		print curriculum.json()
+		print curriculum
 		return curriculum
+
 
 	@internet_needed
 	@login_required
@@ -84,8 +88,11 @@ class MinervaSession:
 
 		print 'Working on this function now.'
 
+
 	@internet_needed
 	def deal_with_request(self, req):
+
+		response = ''
 
 		with open("response.html", "w") as webpage:
 			
@@ -100,3 +107,5 @@ class MinervaSession:
 
 			else:
 				print 'Not implemented yet.'
+
+		return response

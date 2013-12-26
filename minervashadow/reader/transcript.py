@@ -33,8 +33,6 @@ def _curriculum_from_clean_table(table):
 	headers = [col for col in next(rows)]
 	standing_headers = []
 
-	print headers
-
 	curriculum = structures.minervaCurriculum()
 
 	for line in table:
