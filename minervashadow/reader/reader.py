@@ -14,6 +14,7 @@ class MinervaReader:
 		else:
 			return True, login.welcomemsg(html)
 
+
 	def transcript(self, html, semester='all'):
 		
 		soup = BeautifulSoup(html)

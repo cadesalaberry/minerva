@@ -17,7 +17,7 @@ def internet_needed(fn):
 def login_required(fn):
 	def wrapper(self, *args, **kwargs):
 		if not self.user.loggedin:
-			self.login()
+			raise exceptions.AuthenticationRequired
 		fn(self, *args, **kwargs)
 	return wrapper
 
@@ -39,7 +39,7 @@ class MinervaSession:
 
 		loggedin, msg = self.reader.login(loginResponse)
 
-		print msg[0]
+		print msg[0], 'sssssssssssssssssssssss'
 
 		self.user.loggedin = loggedin
 

@@ -9,4 +9,4 @@ def welcomemsg(html):
 
 def welcomeerr(html):
 	# TODO:Instead we should try reading the error message displayed on the html
-	return 'Authorization Failure - you have entered an invalid McGill Username / Password.'
+	return ['Authorization Failure - you have entered an invalid McGill Username / Password.']
