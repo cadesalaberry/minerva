@@ -69,16 +69,16 @@ To remove the package, just run:
 
 If you want to install minervashadow on your SOCS server, you might run into the same issues I did, providing we don't have root privileges. In order to solve it, I just had to modify my **~/.bashrc** file to look like this:
 
-># .bashrc
+	# .bashrc
 
-># Source global definitions
-if [ -f /usr/socs/Profile ]; then
-        . /usr/socs/Profile
-fi
+	# Source global definitions
+	if [ -f /usr/socs/Profile ]; then
+	        . /usr/socs/Profile
+	fi
 
-># User specific aliases and functions
-**export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages:$PYTHONPATH**
-**export PATH=$HOME/.local/bin:$PATH**
+	# User specific aliases and functions
+	export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages:$PYTHONPATH
+	export PATH=$HOME/.local/bin:$PATH
 
 
 The two last lines are the most important.
