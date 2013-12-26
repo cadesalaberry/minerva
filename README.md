@@ -13,27 +13,19 @@ A python interface to the aging minervashadow website.
 Usage:
 
 	minervashadow login
-	minervashadow register <class_crns>...
-	minervashadow drop <class_crn>
 	minervashadow transcript
-	minervashadow check <class_crn>
-	minervashadow search <class_name> | <class_crn>
-	minervashadow list [all]
 	minervashadow -h | --help
 	minervashadow -v | --version
 
 Examples:
 
-	minervashadow register 6969
+	minervashadow login
 	minervashadow transcript
-	minervashadow check 321
-	minervashadow search ecse420
 
 Options:
 
 	-h, --help     Show this screen.
 	-v, --version  Print the current version.
-
 
 ## Installation
 
