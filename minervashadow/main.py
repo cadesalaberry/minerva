@@ -27,42 +27,29 @@ from docopt import docopt
 import ui.cli as cli
 import minerva
 
+
+def interruptable(fn):
+	"""Exits the program if Ctrl+C is pressed"""
+	def wrapper(*args, **kwargs):
+		try:
+			fn(*args, **kwargs)
+		except KeyboardInterrupt:
+			print '\n\nExiting...\nHope to see you soon!'
+			exit()
+	return wrapper
+
+
+@interruptable
 def start():
 
-	try:
-		handled_exit()
-	except KeyboardInterrupt:
-		print '\n\nExiting...\nHope to see you soon!'
-
-
-def handled_exit():
-	
 	args = docopt(__doc__, version=get_version())
 	validRequest = True
 
-	if args['register']:
-		if len(args['<class_crns>']) < 10:
-			print 'Trying to register to:', args['<class_crns>']
-		else:
-			print 'Error: Too many CRNs specified.'
-			validRequest = False
+	credentials = cli.get_user_credentials()
 
+	session = minerva.MinervaSession(credentials)
 
-	if validRequest:
-
-		credentials = cli.get_user_credentials()
-
-		session = minerva.MinervaSession(credentials)
-
-		if not args['login']:
-			session.login()
-
+	if not args['login']:
 		session.deal_with_request(args)
 
-		session.logout()
-		print 'Logged out !'
-
-	else:
-		print 'Error: Invalid input.'
-		print 'try "minervashadow -h" to display the help screen.'
-		print 'Exiting...'
+	session.logout()

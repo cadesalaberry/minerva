@@ -1,6 +1,26 @@
 import utils.structures as structures
+import utils.exceptions as exceptions
 from writer import MinervaWriter
 from reader import reader
+import urllib2
+
+
+def internet_needed(fn):
+	def wrapper(*args, **kwargs):
+		try:
+			fn(*args, **kwargs)
+		except urllib2.URLError as err:
+			raise exceptions.NoInternetConnection
+	return wrapper
+
+
+def login_required(fn):
+	def wrapper(self, *args, **kwargs):
+		if not self.user.loggedin:
+			self.login()
+		fn(self, *args, **kwargs)
+	return wrapper
+
 
 class MinervaSession:
 
@@ -11,7 +31,7 @@ class MinervaSession:
 		self.writer = MinervaWriter(self.site)
 		self.reader = reader.MinervaReader(self.site)
 
-
+	@internet_needed
 	def login(self) :
 
 		# Logs in, This page can confirm a succesful login.
@@ -25,7 +45,7 @@ class MinervaSession:
 
 		return loginResponse.read()
 
-
+	@internet_needed
 	def logout(self):
 		
 		if not self.user.loggedin:
@@ -36,7 +56,8 @@ class MinervaSession:
 
 		return logoutPage.read()
 
-
+	@internet_needed
+	@login_required
 	def drop(self, crn):
 
 		print 'Dropping', crn, '...'
@@ -45,7 +66,8 @@ class MinervaSession:
 		
 		return dropPage.read()
 
-
+	@internet_needed
+	@login_required
 	def transcript(self):
 
 		transcriptPage = self.writer.transcript()
@@ -56,14 +78,14 @@ class MinervaSession:
 		print curriculum.json()
 		return curriculum
 
+	@internet_needed
+	@login_required
 	def list(self):
 
 		print 'Working on this function now.'
 
-
+	@internet_needed
 	def deal_with_request(self, req):
-
-		#print req
 
 		with open("response.html", "w") as webpage:
 			
@@ -78,5 +100,3 @@ class MinervaSession:
 
 			else:
 				print 'Not implemented yet.'
-
-			#webpage.write(response)
