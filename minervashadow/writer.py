@@ -1,4 +1,4 @@
-import utils.structures.calendar as calendar
+import utils.calendar as calendar
 import mechanize
 
 class MinervaWriter:
