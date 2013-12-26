@@ -5,7 +5,7 @@ from reader import reader
 import urllib2
 
 
-def internet_needed(fn):
+def internet_required(fn):
 	def wrapper(*args, **kwargs):
 		try:
 			return fn(*args, **kwargs)
@@ -32,7 +32,7 @@ class MinervaSession:
 		self.reader = reader.MinervaReader(self.site)
 
 
-	@internet_needed
+	@internet_required
 	def login(self) :
 
 		# Logs in, This page can confirm a succesful login.
@@ -45,7 +45,7 @@ class MinervaSession:
 		return msg[0]
 
 
-	@internet_needed
+	@internet_required
 	def logout(self):
 		
 		if not self.user.loggedin:
@@ -57,7 +57,7 @@ class MinervaSession:
 		return logoutPage.read()
 
 
-	@internet_needed
+	@internet_required
 	@login_required
 	def drop(self, crn):
 
@@ -68,7 +68,7 @@ class MinervaSession:
 		return dropPage.read()
 
 
-	@internet_needed
+	@internet_required
 	@login_required
 	def transcript(self):
 
@@ -79,14 +79,14 @@ class MinervaSession:
 		return curriculum
 
 
-	@internet_needed
+	@internet_required
 	@login_required
 	def list(self):
 
 		print 'Working on this function now.'
 
 
-	@internet_needed
+	@internet_required
 	def deal_with_request(self, req):
 
 		response = ''
