@@ -1,8 +1,9 @@
-import minervashadow
 try:
 	from setuptools import setup 
 except:
 	from disutils.core import setup
+
+import minervashadow
 
 
 dependencies=['docopt','mechanize','beautifulsoup4']
