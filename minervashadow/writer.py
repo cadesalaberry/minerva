@@ -1,4 +1,4 @@
-from utils.structures import current_semester as curr_semester
+import utils.structures.calendar as calendar
 import mechanize
 
 class MinervaWriter:
@@ -29,7 +29,7 @@ class MinervaWriter:
 		return self.bwsr.submit()	
 
 
-	def drop(self, crn, semester=curr_semester()):
+	def drop(self, crn, semester=calendar.curr_semester()):
 
 		print 'The class was not actually dropped, missing implementation.'
 		return self.setsemester(semester)

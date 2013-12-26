@@ -1,7 +1,7 @@
 import utils.structures as structures
 import utils.exceptions as exceptions
-from writer import MinervaWriter
 from reader import reader
+import writer
 import urllib2
 
 
@@ -28,7 +28,7 @@ class MinervaSession:
 
 		self.site = structures.minervaSite()
 		self.user = structures.minervaCred(user[0],user[1])
-		self.writer = MinervaWriter(self.site)
+		self.writer = writer.MinervaWriter(self.site)
 		self.reader = reader.MinervaReader(self.site)
 
 

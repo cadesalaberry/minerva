@@ -103,8 +103,3 @@ class minervaCurriculum(jsonObject):
 			sem = minervaSemester('Empty','Semester')
 			self.addSemester(sem)
 		return self.semesters[-1]
-
-
-def current_semester():
-
-	return '201401'
