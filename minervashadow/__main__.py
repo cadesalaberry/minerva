@@ -15,6 +15,7 @@ Options:
 	-v, --version  Print the current version.
 """
 
+from utils.exceptions import MinervaException
 from minervashadow import get_version
 from docopt import docopt
 import ui.cli as cli
@@ -33,7 +34,7 @@ def interruptable(fn):
 
 
 @interruptable
-def start():
+def main():
 
 	args = docopt(__doc__, version=get_version())
 
@@ -48,5 +49,6 @@ def start():
 
 	session.logout()
 
+
 if __name__ == '__main__':
-	start()
+	main()

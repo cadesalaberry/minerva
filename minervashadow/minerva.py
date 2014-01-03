@@ -1,5 +1,5 @@
+from utils.exceptions import AuthenticationRequired, NoInternetConnection
 import utils.structures as structures
-import utils.exceptions as exceptions
 from reader import reader
 import writer
 import urllib2
@@ -9,15 +9,15 @@ def internet_required(fn):
 	def wrapper(*args, **kwargs):
 		try:
 			return fn(*args, **kwargs)
-		except urllib2.URLError as err:
-			raise exceptions.NoInternetConnection
+		except urllib2.URLError:
+			raise NoInternetConnection
 	return wrapper
 
 
 def login_required(fn):
 	def wrapper(self, *args, **kwargs):
 		if not self.user.loggedin:
-			raise exceptions.AuthenticationRequired
+			raise AuthenticationRequired
 		return fn(self, *args, **kwargs)
 	return wrapper
 
