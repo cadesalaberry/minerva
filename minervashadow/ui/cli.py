@@ -1,12 +1,8 @@
+from ..utils.exceptions import InvalidUsername
 from getpass import getpass
 import sys
 import os
 
-class InvalidUsername(Exception):
-	def __init__(self, username):
-		self.username = username
-	def __str__(self):
-		return repr(self.username)
 
 def get_user_credentials():
 
@@ -48,8 +44,8 @@ def get_user_credentials():
 		if len(_cred) != 2:
 			print 'Error: Malformed input. Missing arguments.'
 			print 'Here is what your input should look like:'
-			print 'jonh.doe@mail.mcgill.ca'
-			print 'password'
+			print '\tjonh.doe@mail.mcgill.ca'
+			print '\tpassword'
 			exit()
 			
 	return _cred
@@ -111,6 +107,7 @@ def savedusername(username=""):
 	if the file does not exist, it creates it.
 
 	It also stores the username passed as argument if it is not empty.
+
 
 	Args:
 		A username as a string.
