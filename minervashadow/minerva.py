@@ -91,18 +91,16 @@ class MinervaSession:
 
 		response = ''
 
-		with open("response.html", "w") as webpage:
-			
-			if req['login']:
-				response = self.login()
-			
-			elif req['drop']:
-				response = self.drop(req['<class_crn>'])
+		if req['login']:
+			response = self.login()
+		
+		elif req['drop']:
+			response = self.drop(req['<class_crn>'])
 
-			elif req['transcript']:
-				response = self.transcript()
+		elif req['transcript']:
+			response = self.transcript()
 
-			else:
-				response = 'Not implemented yet.'
+		else:
+			response = 'Not implemented yet.'
 
 		return response
