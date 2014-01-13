@@ -27,7 +27,7 @@ setup(
 	classifiers=[
 		'Development Status :: 3 - Alpha',
 		'Intended Audience :: Developers',
-		'NaturalLanguage :: English',
+		'Natural Language :: French',
 		'License :: OSI Approved :: MIT License',
 		'Programming Language :: Python',
 		'Programming Language :: Python :: 2.7'
