@@ -21,7 +21,7 @@ setup(
 	packages=['minervashadow'],
 	entry_points={
 		'console_scripts': [
-			'minervashadow=minervashadow:start'
+			'minervashadow=minervashadow:main'
 		],
 	},
 	classifiers=[
