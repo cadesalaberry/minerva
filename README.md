@@ -58,7 +58,7 @@ To remove the package, just run:
 	make uninstall
 
 
-## SOCS Server bug
+### SOCS Server bug
 
 If you want to install minervashadow on your SOCS server, you might run into the same issues I did, providing we don't have root privileges. In order to solve it, I just had to modify my **~/.bashrc** file to look like this:
 
@@ -75,6 +75,17 @@ If you want to install minervashadow on your SOCS server, you might run into the
 
 
 The two last lines are the most important.
+
+
+## Contribute
+
+To contribute do not hesitate to send me pull requests ! However when doing so, make sure you don't modify too much code, or the request would not be clear.
+
+## Future
+
+The future of this package is uncertain for now, but here is the planning I had for it on the short term if you are interested:
+
+https://github.com/cadesalaberry/minervashadow/issues/milestones
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cadesalaberry/minervashadow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
