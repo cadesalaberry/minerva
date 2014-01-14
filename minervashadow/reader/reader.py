@@ -14,7 +14,7 @@ class MinervaReader:
 		Parses the result login page and extract the info message that determines a successful login.
 		"""
 		
-		if not html.geturl().contains('WELCOME'):
+		if not 'WELCOME' in html.geturl():
 			return None, login.welcomeerr(html)
 		else:
 			return True, login.welcomemsg(html)
