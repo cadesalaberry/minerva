@@ -49,23 +49,13 @@ class MinervaSession:
 	def logout(self):
 		
 		if not self.user.loggedin:
-			print 'You are already logged out.'
+			message = 'You are already logged out.'
 		else:
 			# Logs out.
 			logoutPage = self.writer.logout()
-
-		return logoutPage.read()
-
-
-	@internet_required
-	@login_required
-	def drop(self, crn):
-
-		print 'Dropping', crn, '...'
-
-		dropPage = self.writer.drop(crn)
+			message = self.reader.logout(logoutPage)
 		
-		return dropPage.read()
+		return message
 
 
 	@internet_required
@@ -86,9 +76,6 @@ class MinervaSession:
 
 		if req['login']:
 			response = self.login()
-		
-		elif req['drop']:
-			response = self.drop(req['<class_crn>'])
 
 		elif req['transcript']:
 			response = self.transcript()
