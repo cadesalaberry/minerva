@@ -10,7 +10,7 @@ class MinervaReader:
 	def login(self, html):
 
 		if html.geturl() == self.site.login:
-			return False, login.welcomeerr(html)
+			return None, login.welcomeerr(html)
 		else:
 			return True, login.welcomemsg(html)
 
