@@ -23,3 +23,6 @@ user-uninstall:
 	if [ -d "minervashadow.egg-info" ];	then rm -r minervashadow.egg-info; fi
 	if [ -d "dist" ];	then rm -r dist; fi
 	if [ -d "~/.minerva" ]; then rm -r ~/.minerva; fi
+
+test:
+	python setup.py test
