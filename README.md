@@ -42,7 +42,7 @@ Or
 
 ### Advanced
 
-If you prefer not using Pypi, or want to get the latest cutting-edge version, you can pull directly from github:
+If you prefer not to use Pypi, or want to get the latest cutting-edge version, you can pull directly from github:
 
 	pip install git+https://github.com/cadesalaberry/minervashadow
 
