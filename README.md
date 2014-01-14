@@ -33,9 +33,14 @@ Options:
 
 ### Simple (with pip)
 
-The package has not been submitted to the Python Package Index (PyPi) yet, but you will be able to install it using:
+The package has been submitted to the Python Package Index (PyPi), you can install it using either one of those command:
 
 	pip install minervashadow
+	easy_install minervashadow
+
+Or if you prefer not using Pypi, or want to get the latest version, you can pull directly from github:
+
+	pip install git+https://github.com/cadesalaberry/minervashadow
 
 
 ### Manual
