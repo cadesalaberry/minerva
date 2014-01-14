@@ -31,36 +31,41 @@ Options:
 ## Installation
 
 
-### Simple (with pip)
-
-The package has been submitted to the Python Package Index (PyPi), you can install it using either one of those command:
+### Simple
 
 	pip install minervashadow
+
+Or
+
 	easy_install minervashadow
 
-Or if you prefer not using Pypi, or want to get the latest version, you can pull directly from github:
+
+### Advanced
+
+If you prefer not using Pypi, or want to get the latest cutting-edge version, you can pull directly from github:
 
 	pip install git+https://github.com/cadesalaberry/minervashadow
 
-
-### Manual
-
-The simplest way to install the package is using the makefile provided in the repository. Provifing you already have git installed:
+Or you can use the makefile included in the repository. Providing you already have git installed:
 
 	git clone https://github.com/cadesalaberry/minervashadow.git
 	cd minervashadow
 	make
 
-And you are good to go ! you can then use the command-line client by typing it's name anywhere in the terminal:
-
-	minervashadow
+And you are good to go !
 
 
 ### Uninstallation
 
 To remove the package, just run:
 
+	pip uninstall minervashadow
+
+Or
+
 	make uninstall
+
+Depending on how you installed it.
 
 
 ### SOCS Server bug
