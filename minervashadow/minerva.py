@@ -80,13 +80,6 @@ class MinervaSession:
 
 
 	@internet_required
-	@login_required
-	def list(self):
-
-		print 'Working on this function now.'
-
-
-	@internet_required
 	def deal_with_request(self, req):
 
 		response = ''
