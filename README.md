@@ -100,4 +100,3 @@ https://github.com/cadesalaberry/minervashadow/issues/milestones
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cadesalaberry/minervashadow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
