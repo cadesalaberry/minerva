@@ -15,7 +15,6 @@ Options:
 	-v, --version  Print the current version.
 """
 
-from utils.exceptions import MinervaException
 from minervashadow import get_version
 from docopt import docopt
 import ui.cli as cli
