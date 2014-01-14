@@ -89,7 +89,7 @@ The two last lines are the most important.
 
 ## Contribute
 
-To contribute do not hesitate to send me pull requests ! However when doing so, make sure you don't modify too much code, or the request would not be clear.
+To contribute do not hesitate to send me pull requests ! However when doing so, make sure you modify the less code possible, or the request would not be clear.
 
 ## Future
 
