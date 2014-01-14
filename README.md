@@ -46,7 +46,7 @@ If you prefer not to use Pypi, or want to get the latest cutting-edge version, y
 
 	pip install git+https://github.com/cadesalaberry/minervashadow
 
-Or you can use the makefile included in the repository. Providing you already have git installed:
+Or you can use the makefile included in the repository, provided you already have git installed:
 
 	git clone https://github.com/cadesalaberry/minervashadow.git
 	cd minervashadow
