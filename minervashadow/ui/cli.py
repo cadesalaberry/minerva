@@ -1,4 +1,4 @@
-from ..utils.exceptions import InvalidUsername
+from minervashadow.utils.exceptions import InvalidUsername
 from getpass import getpass
 import sys
 import os

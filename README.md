@@ -30,6 +30,11 @@ Options:
 
 ## Installation
 
+If you just want to run the package without prior installation, run:
+
+	git clone https://github.com/cadesalaberry/minervashadow.git
+	python minervashadow
+
 
 ### Simple
 
