@@ -13,7 +13,7 @@ setup(
 	name='minervashadow',
 	version=minervashadow.get_version(),
 	description='A python interface to the aging minerva website.',
-	long_description=open('README.md').read(),
+	long_description=open('README.txt').read(),
 	url='https://github.com/cadesalaberry/minervashadow',
 	author='cadesalaberry',
 	author_email='cadesalaberry@yahoo.com',
