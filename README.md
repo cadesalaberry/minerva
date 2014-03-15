@@ -38,7 +38,7 @@ If you just want to run the package without prior installation, (provided you al
 
 ### Simple
 
-	pip install minervashadow
+	pip install --user minervashadow
 
 If you prefer not to use Pypi, or want to get the latest cutting-edge version, you can pull directly from github:
 
@@ -56,7 +56,7 @@ To remove the package, just run:
 
 In installing minervashadow on your SOCS server, you might run into the same issues I did:
 
-	minervashado: command not found
+	minervashadow: command not found
 
 To solve it, I just had to modify my **~/.bashrc** file to look like this:
 
@@ -95,4 +95,8 @@ And you are good to go !
 
 The future of this package is uncertain for now, but here is the planning I had for it on the short term if you are interested:
 
+<<<<<<< HEAD
 https://github.com/cadesalaberry/minervashadow/issues/milestones
+=======
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cadesalaberry/minervashadow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+>>>>>>> c8af0d467229cf46a5c2fc3cc9b948cd15c19fb6

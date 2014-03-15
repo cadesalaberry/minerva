@@ -38,7 +38,7 @@ If you just want to run the package without prior installation, run:
 
 ### Simple
 
-	pip install minervashadow
+	pip install --user minervashadow
 
 Or
 
