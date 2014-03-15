@@ -95,8 +95,4 @@ And you are good to go !
 
 The future of this package is uncertain for now, but here is the planning I had for it on the short term if you are interested:
 
-<<<<<<< HEAD
 https://github.com/cadesalaberry/minervashadow/issues/milestones
-=======
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cadesalaberry/minervashadow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
->>>>>>> c8af0d467229cf46a5c2fc3cc9b948cd15c19fb6
