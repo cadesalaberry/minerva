@@ -2,7 +2,7 @@
 
 
 
-minervashadow
+``minervashadow``
 =======
 
 A python interface to the aging Minerva website.
@@ -86,7 +86,7 @@ To help on the development of the app you can setup your dev environment as foll
 
 	git clone https://github.com/cadesalaberry/minervashadow.git
 	cd minervashadow
-	python setup.py develop
+	python setup.py develop --user
 
 And you are good to go !
 
