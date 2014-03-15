@@ -11,8 +11,8 @@ Examples:
 	minervashadow transcript
 
 Options:
-	-h, --help     Show this screen.
-	-v, --version  Print the current version.
+	-h --help     Show this screen.
+	-v --version  Print the current version.
 """
 
 from minervashadow import get_version
@@ -42,7 +42,7 @@ def main():
 	session = minerva.MinervaSession(credentials)
 
 	print session.login()
-	
+
 	if not args['login']:
 		print session.deal_with_request(args)
 
