@@ -2,10 +2,10 @@
 
 
 
-Minerva Shadow
+minervashadow
 =======
 
-A python interface to the aging minervashadow website.
+A python interface to the aging Minerva website.
 
 
 ## Usage
@@ -30,7 +30,7 @@ Options:
 
 ## Installation
 
-If you just want to run the package without prior installation, run:
+If you just want to run the package without prior installation, (provided you already have install the depedencies) run:
 
 	git clone https://github.com/cadesalaberry/minervashadow.git
 	python minervashadow
@@ -40,24 +40,9 @@ If you just want to run the package without prior installation, run:
 
 	pip install minervashadow
 
-Or
-
-	easy_install minervashadow
-
-
-### Advanced
-
 If you prefer not to use Pypi, or want to get the latest cutting-edge version, you can pull directly from github:
 
 	pip install git+https://github.com/cadesalaberry/minervashadow
-
-Or you can use the makefile included in the repository, provided you already have git installed:
-
-	git clone https://github.com/cadesalaberry/minervashadow.git
-	cd minervashadow
-	make
-
-And you are good to go !
 
 
 ### Uninstallation
@@ -66,16 +51,14 @@ To remove the package, just run:
 
 	pip uninstall minervashadow
 
-Or
-
-	make uninstall
-
-Depending on how you installed it.
-
 
 ### SOCS Server bug
 
-If you want to install minervashadow on your SOCS server, you might run into the same issues I did, providing we don't have root privileges. In order to solve it, I just had to modify my **~/.bashrc** file to look like this:
+In installing minervashadow on your SOCS server, you might run into the same issues I did:
+
+	minervashado: command not found
+
+To solve it, I just had to modify my **~/.bashrc** file to look like this:
 
 	# .bashrc
 
@@ -89,12 +72,23 @@ If you want to install minervashadow on your SOCS server, you might run into the
 	export PATH=$HOME/.local/bin:$PATH
 
 
-The two last lines are the most important.
+The two last lines add the python packages folder to the PATH.
 
 
 ## Contribute
 
-To contribute do not hesitate to send me pull requests ! However when doing so, make sure you modify the less code possible, or the request would not be clear.
+To contribute do not hesitate to send me pull requests !
+
+
+### Dev Environment
+
+To help on the development of the app you can setup your dev environment as follow:
+
+	git clone https://github.com/cadesalaberry/minervashadow.git
+	cd minervashadow
+	python setup.py develop
+
+And you are good to go !
 
 
 ## Future
@@ -102,6 +96,3 @@ To contribute do not hesitate to send me pull requests ! However when doing so, 
 The future of this package is uncertain for now, but here is the planning I had for it on the short term if you are interested:
 
 https://github.com/cadesalaberry/minervashadow/issues/milestones
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cadesalaberry/minervashadow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
